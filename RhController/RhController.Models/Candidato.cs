@@ -2,7 +2,7 @@
 
 namespace RhController.Models
 {
-	public class Class1
+	public class Candidato
 	{
 	}
 }
