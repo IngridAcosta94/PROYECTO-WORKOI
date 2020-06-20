@@ -9,7 +9,6 @@ namespace RhController.Models
 		public int OrdenId { get; set; }
 		public string Estatus { get; set; }
 
-		public ICollection<Empresa> Empresas { get; set; }
 		public ICollection<Candidato> Candidatos { get; set; }
 
 

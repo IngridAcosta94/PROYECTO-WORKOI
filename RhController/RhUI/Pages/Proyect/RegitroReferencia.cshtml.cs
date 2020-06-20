@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace RhUI.Proyecto
+namespace RhUI.Pages.Proyect
 {
-    public class CrearOrdenModel : PageModel
+    public class RegitroReferenciaModel : PageModel
     {
         public void OnGet()
         {

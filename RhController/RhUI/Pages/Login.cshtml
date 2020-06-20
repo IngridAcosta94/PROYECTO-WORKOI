@@ -1,7 +1,44 @@
 ﻿@page
 @model RhUI.Pages.LoginModel
 @{
-	
+	<!doctype html>
+	<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<!-- Titulo de la pagina -->
+		<title>Login</title>
+
+		<!-- CSS -->
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/animate.css">
+		<link rel="stylesheet" href="css/styles.css">
+	</head>
+	<body>
+		<div id="container">
+			<form>
+				<!-- Usuario -->
+				<label for="name">Usuario:</label>
+				<input type="name">
+				<!-- Contraseña -->
+				<label for="username">Contraseña:</label>
+				<input type="password">
+
+
+
+				<p>
+					<a href="#">Olvidaste tu contraseña?</a>
+
+
+					<div id="lower">
+						<input type="checkbox"><label class="check" for="checkbox"> Mentenerme conectado en</label>
+						<!-- Submit Button -->
+						<input type="submit" value="Login">
+					</div>
+			</form>
+		</div>
+	</body>
+</html>
 
 
 

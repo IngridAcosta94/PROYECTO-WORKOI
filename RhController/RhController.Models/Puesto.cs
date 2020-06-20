@@ -4,9 +4,10 @@ using System.Text;
 
 namespace RhController.Models
 {
-	class PuestoAnterior
+	public class Puesto
 	{
 		public int PuestoId { get; set; }
 		public int Nombre { get; set; }
+
 	}
 }

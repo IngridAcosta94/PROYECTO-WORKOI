@@ -16,6 +16,9 @@ namespace RhController.Models
 		//referencias
 		public int NacionalidadId { get; set; }
 		public Nacionalidad Nacionalidad { get; set; }
+        public int OrdenId { get; set; }
+
+
 
 
 

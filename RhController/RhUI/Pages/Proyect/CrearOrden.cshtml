@@ -1,0 +1,39 @@
+﻿@page
+@model RhUI.Pages.Proyect.CrearOrdenModel
+@{
+	<!doctype html>
+	<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>@ViewData["Title"] - Work-Io</title>
+	</head>
+	<body style="margin-right:50px; margin-left:50px; margin-top:25px; border:double; border-color:darkmagenta;">
+		<link href="~/css/NWKBZdV.css" rel="stylesheet" />
+		<script src="~/js/NWKBZdV.js"></script>
+		<h3>Registro de candidatos</h3>
+		<p style="color:red; font-size:12px;">Maximo registro de 10 candidatos</p>
+		<div>
+			<div>
+				<script src="http://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js"></script>
+				<canvas id="c1">
+				</canvas>
+				<p style="font-size: 14px;">Cargar Imagen</p>
+				<input type="file" id="f1" multiple="false" accept="image/*" onchange="cargar()">
+			</div>
+			<div>
+				<label for="name">Nombre:</label>
+				<input type="text" id="name" name="user_name">
+
+			</div>
+			<div>
+				<label for="apellido">Apellido:</label>
+				<input type="text" id="name" name="user_name">
+				<label for="mail">Correo electrónico:</label>
+				<input type="email" id="mail" name="user_mail">
+			</div>
+		</div>
+	</body>
+	</html>
+
+		}
