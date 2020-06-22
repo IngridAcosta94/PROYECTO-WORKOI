@@ -12,27 +12,221 @@
 		<link href="~/css/NWKBZdV.css" rel="stylesheet" />
 		<script src="~/js/NWKBZdV.js"></script>
 		<h3>Registro de candidatos</h3>
-		<p style="color:red; font-size:12px;">Maximo registro de 10 candidatos</p>
+		<p style="color:red; font-size:12px;">Maximo registro de 10 candidatos por orden</p>
 		<div>
-			<div>
+			<div class="container">
+
 				<script src="http://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js"></script>
 				<canvas id="c1">
 				</canvas>
-				<p style="font-size: 14px;">Cargar Imagen</p>
-				<input type="file" id="f1" multiple="false" accept="image/*" onchange="cargar()">
-			</div>
-			<div>
+
 				<label for="name">Nombre:</label>
 				<input type="text" id="name" name="user_name">
-
-			</div>
-			<div>
 				<label for="apellido">Apellido:</label>
 				<input type="text" id="name" name="user_name">
-				<label for="mail">Correo electrónico:</label>
-				<input type="email" id="mail" name="user_mail">
+
+				<p style="font-size: 14px;">Cargar Imagen</p>
+				<input type="file" id="f1" multiple="false" accept="image/*" onchange="cargar()">
+
 			</div>
+
+			<div>
+				<label for="Direccion">Direccion:</label>
+				<input type="text" id="Direccion" name="user_Direccion">
+				<label for="FechaNac">Fecha de Nacimiento:</label>
+				<input type="date" id="Birthday" name="FechaNaci">
+				<select name="select">
+					<option value="select" selected>Selecciona un genero </option>
+					<option value="Masc">Masculino </option>
+					<option value="Fem">Femenino</option>
+				</select>
+			</div>
+			<div>
+				<label for="Curp">CURP:</label>
+				<input type="text" id="Cur" name="user_Curp">
+				<select name="selectCivil">
+					<option value="selectCiv" selected>Selecciona un estado civil </option>
+					<option value="Casad">Casado </option>
+					<option value="Soltero">Soltero</option>
+					<option value="UnionLiv">Union Libre</option>
+					<option value="Viudo">Viudo</option>
+					<option value="Divor">Divorciado</option>
+				</select>
+
+			</div>
+			<p style="color:black; font-size:12px;">Documentacion: Seleccione con los cuales cuenta el candidato</p>
+			<div>
+				<label for="VisLab">Visa Laboral</label>
+				<input id="VisaLaboral" type="checkbox" />
+				<label for="Licen">Licencia</label>
+				<input id="Licencia" type="checkbox" />
+				<label for="CartMil">Cartilla Militar</label>
+				<input id="CartillaMil" type="checkbox" />
+				<label for="Pasap">PAsaporte</label>
+				<input id="Paaporte" type="checkbox" />
+				<label for="CompDom">Comprobante de Domicilio</label>
+				<input id="ComprobanteDom" type="checkbox" />
+				<label for="INEE">INE</label>
+				<input id="INE" type="checkbox" />
+				<label for="AntPen">Antecedentes no penales</label>
+				<input id="Antecedentes" type="checkbox" />
+
+
+			</div>
+
+
 		</div>
+		<h4>Referencias laborales</h4>
+		<p style="color:red; font-size:12px;">Referencia 1</p>
+		<div>
+			<label for="NombreCom">Nombre Comercial:</label>
+			<input type="text" id="NomCom" name="user_NombCom">
+			<label for="Telef1">Tel 1:</label>
+			<input type="text" id="num1" name="Telefono1">
+			<label for="Telef2">Tel 2:</label>
+			<input type="text" id="num2" name="Telefono2">
+			<label for="Telef3">Tel 3:</label>
+			<input type="text" id="num3" name="Telefono3">
+
+		</div>
+		<div>
+			<label for="RazonSos">Razon Social:</label>
+			<input type="text" id="RazSos" name="user_RazSos">
+			<label for="Direccion">Direccion:</label>
+			<input type="text" id="Direccion" name="user_Direccion">
+
+		</div>
+		<div>
+			<label for="NombJef">Nombre Jefe Inmediato:</label>
+			<input type="text" id="NombreJef" name="user_NombJef">
+			<label for="PuestJef">Puesto Jefe Inmediato:</label>
+			<input type="text" id="PuestoJef" name="user_puestJef">
+		</div>
+		<div>
+			<label for="Comen">Comentarios:</label>
+			<textarea rows="4" cols="50" id="Coment" name="user_Coment"></textarea>
+
+
+		</div>
+		<p style="color:red; font-size:12px;">Referencia 2</p>
+		<div>
+			<label for="NombreCom">Nombre Comercial:</label>
+			<input type="text" id="NomCom" name="user_NombCom">
+			<label for="Telef1">Tel 1:</label>
+			<input type="text" id="num1" name="Telefono1">
+			<label for="Telef2">Tel 2:</label>
+			<input type="text" id="num2" name="Telefono2">
+			<label for="Telef3">Tel 3:</label>
+			<input type="text" id="num3" name="Telefono3">
+
+		</div>
+		<div>
+			<label for="RazonSos">Razon Social:</label>
+			<input type="text" id="RazSos" name="user_RazSos">
+			<label for="Direccion">Direccion:</label>
+			<input type="text" id="Direccion" name="user_Direccion">
+
+		</div>
+		<div>
+			<label for="NombJef">Nombre Jefe Inmediato:</label>
+			<input type="text" id="NombreJef" name="user_NombJef">
+			<label for="PuestJef">Puesto Jefe Inmediato:</label>
+			<input type="text" id="PuestoJef" name="user_puestJef">
+		</div>
+		<div>
+			<label for="Comen">Comentarios:</label>
+			<textarea rows="4" cols="50" id="Coment" name="user_Coment"></textarea>
+
+
+		</div>
+		<p style="color:red; font-size:12px;">Referencia 3</p>
+		<div>
+			<label for="NombreCom">Nombre Comercial:</label>
+			<input type="text" id="NomCom" name="user_NombCom">
+			<label for="Telef1">Tel 1:</label>
+			<input type="text" id="num1" name="Telefono1">
+			<label for="Telef2">Tel 2:</label>
+			<input type="text" id="num2" name="Telefono2">
+			<label for="Telef3">Tel 3:</label>
+			<input type="text" id="num3" name="Telefono3">
+
+		</div>
+		<div>
+			<label for="RazonSos">Razon Social:</label>
+			<input type="text" id="RazSos" name="user_RazSos">
+			<label for="Direccion">Direccion:</label>
+			<input type="text" id="Direccion" name="user_Direccion">
+
+		</div>
+		<div>
+			<label for="NombJef">Nombre Jefe Inmediato:</label>
+			<input type="text" id="NombreJef" name="user_NombJef">
+			<label for="PuestJef">Puesto Jefe Inmediato:</label>
+			<input type="text" id="PuestoJef" name="user_puestJef">
+		</div>
+		<div>
+			<label for="Comen">Comentarios:</label>
+			<textarea rows="4" cols="50" id="Coment" name="user_Coment"></textarea>
+
+
+		</div>
+
+		<hr color="darkmagenta" size="1" />
+		<h4>Orden</h4>
+
+		<table>
+			<thead>
+				<tr>
+					<th> ID</th>
+					<th>Nombre del Candidato</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td> 1 </td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>2 </td>
+					<td> </td>
+				</tr>
+				<tr>
+					<td> 3 </td>
+					<td></td>
+				</tr>
+				<tr>
+					<td> 4 </td>
+					<td></td>
+				</tr>
+				<tr>
+					<td> 5 </td>
+					<td></td>
+				</tr>
+				<tr>
+					<td> 6</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td> 7 </td>
+					<td></td>
+				</tr>
+				<tr>
+					<td> 8 </td>
+					<td></td>
+				</tr>
+				<tr>
+					<td> 9</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td> 10 </td>
+					<td></td>
+				</tr>
+			</tbody>
+
+		</table>
+		<link href="~/css/TablaOrden.css" rel="stylesheet" />
+
 	</body>
 	</html>
 
