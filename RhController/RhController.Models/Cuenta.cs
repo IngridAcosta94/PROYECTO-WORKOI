@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RhController.Models
 {
-	class Usuario
+	public class Cuenta
 	{
 		public int UsuarioId { get; set; }
 		public string Nombre { get; set; }
@@ -12,5 +12,7 @@ namespace RhController.Models
 
 		public int EmpresaId { get; set; }
 		public Empresa Empresa { get; set; }
+
+
 	}
 }

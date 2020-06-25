@@ -1,6 +1,8 @@
 ﻿@page
 @model RhUI.Pages.Proyect.CrearOrdenModel
 @{
+	ViewData["Title"] = "Orden";
+
 	<!doctype html>
 	<html>
 	<head>
@@ -26,7 +28,7 @@
 				<input type="text" id="name" name="user_name">
 
 				<p style="font-size: 14px;">Cargar Imagen</p>
-				<input type="file" id="f1" multiple="false" accept="image/*" onchange="cargar()">
+				<input type="file" id="f1" multiple="" accept="image/*" onchange="cargar()">
 
 			</div>
 
@@ -167,8 +169,9 @@
 		<div>
 			<label for="Comen">Comentarios:</label>
 			<textarea rows="4" cols="50" id="Coment" name="user_Coment"></textarea>
-
-
+		</div>
+		<div>
+			<a href="#" class="btn btn-primary m-1 ">Registrar</a>
 		</div>
 
 		<hr color="darkmagenta" size="1" />
@@ -226,8 +229,10 @@
 
 		</table>
 		<link href="~/css/TablaOrden.css" rel="stylesheet" />
-
+		<div>
+			<a href="#" class="btn btn-primary m-1 ">Guardar</a>
+		</div>
 	</body>
-	</html>
+</html>
+}
 
-		}

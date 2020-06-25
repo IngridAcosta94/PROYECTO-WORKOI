@@ -11,6 +11,9 @@ namespace RhController.Models
 
 		public ICollection<Candidato> Candidatos { get; set; }
 
+		public int EmpresaId { get; set; }
+		public  Empresa Empresa { get; set; }
+
 
 
 	}
