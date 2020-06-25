@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RhController.Models
 {
-	class ReferenciaLab
+	public class ReferenciaLab
 	{
 		public int ReferenciaId { get; set; }
 		public string Nombre { get; set; }
@@ -27,6 +27,6 @@ namespace RhController.Models
 		public Candidato Candidato { get; set; }
 
 		public int PuestoId { get; set; }
-		public PuestoAnterior PuestoAnterior { get; set; }
+		public Puesto Puesto { get; set; }
 	}
 }

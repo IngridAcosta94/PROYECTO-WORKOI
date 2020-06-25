@@ -10,8 +10,9 @@ namespace RhController.Models
 		public string Nombre { get; set; }
 		public string Contraseña { get; set; }
 
-		public int EmpresaId { get; set; }
-		public Empresa Empresa { get; set; }
+		public int PerfilId { get; set; }
+		public Perfil Perfil { get; set; }
+
 
 
 	}

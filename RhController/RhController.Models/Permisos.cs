@@ -6,7 +6,7 @@ namespace RhController.Models
 {
 	class Permisos
 	{
-		public int MyProperty { get; set; }
+		public int PermisoId { get; set; }
 
 
 	}

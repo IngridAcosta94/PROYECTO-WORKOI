@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace RhController.Models
 {
@@ -17,20 +19,7 @@ namespace RhController.Models
 		public int NacionalidadId { get; set; }
 		public Nacionalidad Nacionalidad { get; set; }
         public int OrdenId { get; set; }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+		public ICollection<ReferenciaLab> Referencias { get; set; }
 
 	}
 }

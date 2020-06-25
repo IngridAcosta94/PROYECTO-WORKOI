@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RhController.Models
 {
-	class Documentacion
+	public class Documentacion
 	{
 		public int DocumentacionId { get; set; }
 		public string Tipo { get; set; }

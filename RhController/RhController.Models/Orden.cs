@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RhController.Models
 {
-	class Orden
+	public class Orden
 	{
 		public int OrdenId { get; set; }
 		public string Estatus { get; set; }
