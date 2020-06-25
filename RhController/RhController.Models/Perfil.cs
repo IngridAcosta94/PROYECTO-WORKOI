@@ -6,5 +6,6 @@ namespace RhController.Models
 {
 	class Perfil
 	{
+		public int PerfilId { get; set; }
 	}
 }
