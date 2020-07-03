@@ -36,6 +36,8 @@ namespace RhController.Models
 		[Required(ErrorMessage = "La Orden es requerida.")]
 		[ForeignKey("Orden")]
 		public int OrdenId { get; set; }
+		public Orden Orden { get; set; }
+
 		public ICollection<ReferenciaLab> Referencias { get; set; }
 
 		[Display(Name = "Documentacion")]

@@ -10,8 +10,8 @@ using RhController.Services;
 namespace RhController.Services.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20200702200441_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20200703165629_Primero")]
+    partial class Primero
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -66,9 +66,6 @@ namespace RhController.Services.Migrations
                     b.Property<string>("Apellido")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("Candidato")
-                        .HasColumnType("int");
-
                     b.Property<string>("Correo")
                         .HasColumnType("nvarchar(max)");
 
@@ -110,11 +107,11 @@ namespace RhController.Services.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Candidato");
-
                     b.HasIndex("DcumentacionId");
 
                     b.HasIndex("NacionalidadId");
+
+                    b.HasIndex("OrdenId");
 
                     b.ToTable("Candidatos");
                 });
@@ -248,9 +245,6 @@ namespace RhController.Services.Migrations
                     b.Property<int>("EmpresaId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Orden")
-                        .HasColumnType("int");
-
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
 
@@ -260,8 +254,6 @@ namespace RhController.Services.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("EmpresaId");
-
-                    b.HasIndex("Orden");
 
                     b.ToTable("Ordenes");
                 });
@@ -404,10 +396,6 @@ namespace RhController.Services.Migrations
 
             modelBuilder.Entity("RhController.Models.Candidato", b =>
                 {
-                    b.HasOne("RhController.Models.Orden", null)
-                        .WithMany("Candidatos")
-                        .HasForeignKey("Candidato");
-
                     b.HasOne("RhController.Models.Documentacion", "Dcumentacion")
                         .WithMany()
                         .HasForeignKey("DcumentacionId");
@@ -415,6 +403,12 @@ namespace RhController.Services.Migrations
                     b.HasOne("RhController.Models.Nacionalidad", "Nacionalidad")
                         .WithMany()
                         .HasForeignKey("NacionalidadId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("RhController.Models.Orden", "Orden")
+                        .WithMany("Candidatos")
+                        .HasForeignKey("OrdenId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -431,14 +425,10 @@ namespace RhController.Services.Migrations
             modelBuilder.Entity("RhController.Models.Orden", b =>
                 {
                     b.HasOne("RhController.Models.Empresa", "Empresa")
-                        .WithMany()
+                        .WithMany("Ordenes")
                         .HasForeignKey("EmpresaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("RhController.Models.Empresa", null)
-                        .WithMany("Ordenes")
-                        .HasForeignKey("Orden");
                 });
 
             modelBuilder.Entity("RhController.Models.ReferenciaLab", b =>

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace RhController.Services.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class Primero : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -101,8 +101,7 @@ namespace RhController.Services.Migrations
                     CreatedAT = table.Column<DateTime>(nullable: false),
                     UpdatedAT = table.Column<DateTime>(nullable: true),
                     Status = table.Column<bool>(nullable: false),
-                    EmpresaId = table.Column<int>(nullable: false),
-                    Orden = table.Column<int>(nullable: true)
+                    EmpresaId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -113,12 +112,6 @@ namespace RhController.Services.Migrations
                         principalTable: "Empresas",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Ordenes_Empresas_Orden",
-                        column: x => x.Orden,
-                        principalTable: "Empresas",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -189,18 +182,11 @@ namespace RhController.Services.Migrations
                     NacionalidadId = table.Column<int>(nullable: false),
                     OrdenId = table.Column<int>(nullable: false),
                     DocumentoId = table.Column<int>(nullable: false),
-                    DcumentacionId = table.Column<int>(nullable: true),
-                    Candidato = table.Column<int>(nullable: true)
+                    DcumentacionId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Candidatos", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Candidatos_Ordenes_Candidato",
-                        column: x => x.Candidato,
-                        principalTable: "Ordenes",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Candidatos_Documentaciones_DcumentacionId",
                         column: x => x.DcumentacionId,
@@ -211,6 +197,12 @@ namespace RhController.Services.Migrations
                         name: "FK_Candidatos_Nacionalidades_NacionalidadId",
                         column: x => x.NacionalidadId,
                         principalTable: "Nacionalidades",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Candidatos_Ordenes_OrdenId",
+                        column: x => x.OrdenId,
+                        principalTable: "Ordenes",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -265,11 +257,6 @@ namespace RhController.Services.Migrations
                 column: "PerfilId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Candidatos_Candidato",
-                table: "Candidatos",
-                column: "Candidato");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Candidatos_DcumentacionId",
                 table: "Candidatos",
                 column: "DcumentacionId");
@@ -280,6 +267,11 @@ namespace RhController.Services.Migrations
                 column: "NacionalidadId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Candidatos_OrdenId",
+                table: "Candidatos",
+                column: "OrdenId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Cuentas_PerfilId",
                 table: "Cuentas",
                 column: "PerfilId");
@@ -288,11 +280,6 @@ namespace RhController.Services.Migrations
                 name: "IX_Ordenes_EmpresaId",
                 table: "Ordenes",
                 column: "EmpresaId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Ordenes_Orden",
-                table: "Ordenes",
-                column: "Orden");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Referencias_CandidatoId",
@@ -326,13 +313,13 @@ namespace RhController.Services.Migrations
                 name: "Puestos");
 
             migrationBuilder.DropTable(
-                name: "Ordenes");
-
-            migrationBuilder.DropTable(
                 name: "Documentaciones");
 
             migrationBuilder.DropTable(
                 name: "Nacionalidades");
+
+            migrationBuilder.DropTable(
+                name: "Ordenes");
 
             migrationBuilder.DropTable(
                 name: "Empresas");

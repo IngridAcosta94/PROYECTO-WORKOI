@@ -12,9 +12,7 @@ namespace RhController.Models
 		
 		// se retiro el ID y el estatus por que ahora hereda de BaseEntity
 
-		[Display(Name = "Candidato")]
-		[Required(ErrorMessage = "El candidato es requerido.")]
-		[ForeignKey("Candidato")]
+		
 		public ICollection<Candidato> Candidatos { get; set; }
 
 		[Display(Name = "Empresa")]

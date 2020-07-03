@@ -17,10 +17,8 @@ namespace RhController.Models
 		public string Correo { get; set; }
 		[Display(Name = "Telefono")]
 		public string Telefono { get; set; }
-
-		[Display(Name = "Orden")]
-		[Required(ErrorMessage = "La Orden es requerida.")]
-		[ForeignKey("Orden")]
+		//public string PhotoEmpresa { get; set; }
+		
 		public ICollection<Orden> Ordenes { get; set; }
 
 		[Display(Name = "Perfil")]
