@@ -4,9 +4,9 @@ using System.Text;
 
 namespace RhController.Models
 {
-	public class Nacionalidad
+	public class Nacionalidad : BaseEntity
 	{
-		public int NacionalidadId { get; set; }
+		
 		public string Nombre { get; set; }
 	}
 }

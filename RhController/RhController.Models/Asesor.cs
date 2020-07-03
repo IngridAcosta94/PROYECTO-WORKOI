@@ -1,15 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace RhController.Models
 {
-	public class Asesor
+	public class Asesor : BaseEntity
 	{
-		public int AsesorId { get; set; }
+
+		
+		[Display(Name = "Nombre")]
 		public string Nombre { get; set; }
+		[Display(Name = "Apellido")]
 		public string Apellido { get; set; }
-        public string Correo { get; set; }
+		[Display(Name = "Correo")]
+		[EmailAddress(ErrorMessage = " Debe de ser un correo valido")]
+		public string Correo { get; set; }
+
+
+		[Display(Name = "Perfil")]
+		[Required(ErrorMessage = "El perfil es requerido.")]
+		[ForeignKey("Perfil")]
+		public int PerfilId { get; set; }
+		[Display(Name = "Id")]
+		public Perfil Perfil { get; set; }
+
+
+
+
 
 
 
