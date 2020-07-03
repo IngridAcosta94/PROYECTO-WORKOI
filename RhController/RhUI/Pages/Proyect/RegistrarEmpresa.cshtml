@@ -4,63 +4,52 @@
 	ViewData["Title"] = "Referencia";
 	<!doctype html>
 	<html>
-		<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title>@ViewData["Title"] - Work-Io</title>
-		</head>
-		<body style="margin-right:50px; background-color:white; margin-left:50px; margin-top:25px; border:double; border-color:darkmagenta;">
-			<link href="~/css/NWKBZdV.css" rel="stylesheet" />
-			<script src="~/js/NWKBZdV.js"></script>
-			<h3>Registro de Empresas</h3>
-			<p style="color:black; font-size:25px;">Empresa</p>
+
+
+	<body style="margin-right:50px; background-color:white; margin-left:50px; margin-top:25px; border:double; border-color:darkmagenta;">
+		<link href="~/css/NWKBZdV.css" rel="stylesheet" />
+		<script src="~/js/NWKBZdV.js"></script>
+		<h3>Registro de Empresas</h3>
+		<p style="color:black; font-size:25px;">Empresa</p>
+		<form method="post" enctype="multipart/form-data">
 			<div>
 				<div class="container">
 
-					<!--<script src="http://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js"></script>
-					<canvas id="c1">
-					</canvas>-->
+
 
 					<label asp-for="Empresa.Nombre">Nombre:</label>
-					<input type="text" asp-for="Empresa.Nombre" class="form-control form-text" placeholder="">
+					<input type="text" asp-for="Empresa.Nombre" class="form-control form-text" placeholder="Nombre Empresa">
 					<label asp-for="Empresa.Telefono">Telefono:</label>
-					<input type="text" asp-for="Empresa.Telefono" class="form-control form-text" placeholder="">
+					<input type="text" asp-for="Empresa.Telefono" class="form-control form-text" placeholder="Telefono Empresa">
 
-					<!--<p style="font-size: 14px;">Cargar Imagen</p>
-					<input type="file" id="f1" multiple=" false " accept="image/*" onchange="cargar()">-->
+
 
 				</div>
 
 				<div>
 					<label asp-for="Empresa.Correo">Correo:</label>
-					<input type="text" asp-for="Empresa.Correo" class="form-control form-text" placeholder="">
+					<input type="text" asp-for="Empresa.Correo" class="form-control form-text" placeholder="Correo">
 					<label asp-for="Empresa.Direccion">Direccion:</label>
-					<input type="text" asp-for="Empresa.Direccion" class="form-control form-text" placeholder="">
+					<input type="text" asp-for="Empresa.Direccion" class="form-control form-text" placeholder="Direccion">
 
 				</div>
 
-		 </div>
+			</div>
 
-			<div class="col-xl-8 col-md-6"><button type="submit" value="" class="btn btn-success btn-block btn-lg">Registrar</button>  </div>
-			<!--<div class="col-xl-8 col-md-6"><a asp-page="/Proyect/RegistrarEmpresa" class="btn btn-primary btn-block btn-lg"></a> Cancelar </div>-->
-
-
-			
+			    <div class="col-xs-12 col-md-6"><button type="submit" value="" class="btn btn-success btn-block btn-lg">Registrar</button></div>
+		
 
 
+
+        </form>
 
 	</body>
 
 </html>
 
-
-
-
-
-
-
-
-
-
-
 }
+
+
+
+
+<!-

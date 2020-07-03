@@ -12,41 +12,39 @@ namespace RhUI.Pages.Proyect
 {
     public class RegistrarEmpresaModel : PageModel
     {
+
+
+
         [BindProperty]
-       public Empresa Empresa { get; set; }
-       public IWebHostEnvironment HostEnvironment { get; }
+        public Empresa Empresa { get; set; }
+        public IWebHostEnvironment HostEnvironment { get; }
 
-       private readonly IProyecto<Empresa> repository;
+        private readonly IProyecto<Empresa> repository;
 
-        public RegistrarEmpresaModel(IProyecto<Empresa> repository, IWebHostEnvironment hostEnvironment)
-
-
+        public RegistrarEmpresaModel(IProyecto <Empresa> repository, IWebHostEnvironment hostEnvironment)
         {
-
             this.repository = repository;
             HostEnvironment = hostEnvironment;
-        
-        
-        
-        
-        }
-
-
-        public IActionResult OnPost()
-
-        {
-
-            if (!ModelState.IsValid)
-                return Page();
-            var id = repository.Insert(Empresa);
-
-            return RedirectToPage("/Proyect/RegistrarEmpresa");
-
         }
 
         public void OnGet()
         {
+
         }
+
+        public IActionResult OnPost()
+        {
+            if (!ModelState.IsValid)
+                return Page();
+
+            var id = repository.Insert(Empresa);
+
+            return RedirectToPage("/Proyect/RegistrarEmpresa");
+        }
+
+
+
+       
 
 
     }
