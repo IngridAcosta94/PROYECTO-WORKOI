@@ -13,7 +13,11 @@ namespace RhController.Models
 		public string Nombre { get; set; }
 		[Display(Name = "Apellido")]
 		public string Apellido { get; set; }
-		public DateTime FechaNac { get; set; }
+		[Display(Name = "Curp")]
+		public string Curp { get; set; }
+		[Display(Name = "Direccion")]
+		public string Direccion { get; set; }
+        public DateTime FechaNac { get; set; }
 		[Display(Name = "EstadoCivil")]
 		public bool EstadoCivil { get; set;}
 		[Display(Name = "Photo")]

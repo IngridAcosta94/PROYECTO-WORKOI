@@ -10,5 +10,6 @@ namespace RhController.Services
 		{
 			public IEnumerable<Workshop> GetWorkshops();
 		}*/
+
 	}
 }

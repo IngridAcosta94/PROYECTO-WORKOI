@@ -1,0 +1,91 @@
+﻿@page
+@model RhUI.Pages.Proyect.RegistrarCandidatoModel
+@{
+
+	<!doctype html>
+	<html>
+	<head>
+			<meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+			<title>@ViewData["Title"] - Work-Io</title>
+		</head>
+		<body style="margin-right:50px; background-color:white; margin-left:50px; margin-top:25px; border:double; border-color:darkmagenta;">
+			<form method="post" enctype="multipart/form-data">
+				<link href="~/css/NWKBZdV.css" rel="stylesheet" />
+				<script src="~/js/NWKBZdV.js"></script>
+				<h3>Registro de candidatos</h3>
+				<p style="color:red; font-size:12px;">Maximo registro de 10 candidatos por orden</p>
+				<div>
+					<div class="container form-group col-lg-6">
+
+						<script src="http://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js"></script>
+						<canvas id="c1">
+						</canvas>
+
+						<label asp-for="Candidato.Nombre ">Nombre:</label>
+						<input type="text" asp-for="Candidato.Nombre" placeholder="Nombre">
+						<br>
+						<br>
+						<label asp-for="Candidato.Apellido">Apellido:</label>
+						<input type="text" asp-for="Candidato.Apellido" placeholder="Apellido">
+
+						<p style="font-size: 14px;">Cargar Imagen</p>
+						<input type="file" asp-for="Candidato.PhotoCandidato" multiple="" accept="image/*" onchange="cargar()">
+	
+					</div>
+					<br>
+					<br>
+
+					<div>
+						<label asp-for="Candidato.Direccion">Direccion:</label>
+						<input type="text" asp-for="Candidato.Direccion" placeholder="Direccion">
+						<label asp-for="Candidato.FechaNac">Fecha de Nacimiento:</label>
+						<input type="date" asp-for="Candidato.FechaNac" placeholder="Fecha Nacimiento">
+						<select name="select">
+							<option value="select" selected>Selecciona un genero </option>
+							<option value="Masc">Masculino </option>
+							<option value="Fem">Femenino</option>
+						</select>
+					</div>
+					<div>
+						<label asp-for="Candidato.Curp">CURP:</label>
+						<input type="text" asp-for="Candidato.Curp" placeholder="CURP">
+						<select name="selectCivil">
+							<option value="selectCiv" selected>Selecciona un estado civil </option>
+							<option value="Casad">Casado </option>
+							<option value="Soltero">Soltero</option>
+							<option value="UnionLiv">Union Libre</option>
+							<option value="Viudo">Viudo</option>
+							<option value="Divor">Divorciado</option>
+						</select>
+
+					</div>
+					<p style="color:black; font-size:12px;">Documentacion: Seleccione con los que cuenta el candidato</p>
+					<div>
+						<label for="VisLab">Visa Laboral</label>
+						<input id="VisaLaboral" type="checkbox" />
+						<label for="Licen">Licencia</label>
+						<input id="Licencia" type="checkbox" />
+						<label for="CartMil">Cartilla Militar</label>
+						<input id="CartillaMil" type="checkbox" />
+						<label for="Pasap">PAsaporte</label>
+						<input id="Paaporte" type="checkbox" />
+						<label for="CompDom">Comprobante de Domicilio</label>
+						<input id="ComprobanteDom" type="checkbox" />
+						<label for="INEE">INE</label>
+						<input id="INE" type="checkbox" />
+						<label for="AntPen">Antecedentes no penales</label>
+						<input id="Antecedentes" type="checkbox" />
+					</div>
+				</div>
+
+
+
+         </form>
+
+
+
+
+		</body>
+</html>
+}
