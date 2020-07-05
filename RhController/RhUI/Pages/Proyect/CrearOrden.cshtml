@@ -14,22 +14,50 @@
 		<form method="post" enctype="multipart/form-data">
 			<link href="~/css/NWKBZdV.css" rel="stylesheet" />
 			<script src="~/js/NWKBZdV.js"></script>
-			<h3>Registro de candidatos</h3>
-			<p style="color:red; font-size:12px;">Maximo registro de 10 candidatos por orden</p>
+			
 			<div>
 				<div class="container form-group col-lg-6">
 
+					<div>
+						<h3>Crear Orden</h3>
+						<label asp-for="Orden.PuestoSolicitado ">Ingrese un nombre del puesto que se solicita:</label>
+						<input type="text" asp-for="Orden.PuestoSolicitado" placeholder="Puesto solicitado">
+						<br>
+						<br>
+						<label asp-for="Orden.Empresa">Ingrese el nombre de su empresa:</label>
+						<input type="text" asp-for="Orden.Empresa" placeholder="Nombre">
+						<select name="select">
+							<option value="select" selected>Selecciona el Estatus </option>
+							<option value="Masc">Activo </option>
+							<option value="Fem">Desactivo</option>
+						</select>
+					</div>
+					<div>
+						<a href="#" class="btn btn-primary m-1 ">Crear</a>
+					</div>
+
+					<h3>Registro de candidatos</h3>
+					<p style="color:red; font-size:12px;">Maximo registro de 10 candidatos por orden</p>
+
+					<div>
+						<label asp-for="Candidato.Orden ">Ingrese el puesto que se requiere solicitar:</label>
+						<input type="text" asp-for="Candidato.Orden" placeholder="Puesto">
+					</div>
+					<br>
+					<br>
 					<script src="http://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js"></script>
 					<canvas id="c1">
 					</canvas>
-
+					<br>
+					<br>
 					<label asp-for="Candidato.Nombre ">Nombre:</label>
 					<input type="text" asp-for="Candidato.Nombre" placeholder="Nombre">
 					<br>
 					<br>
 					<label asp-for="Candidato.Apellido">Apellido:</label>
 					<input type="text" asp-for="Candidato.Apellido" placeholder="Apellido">
-
+					<br>
+					<br>
 					<p style="font-size: 14px;">Cargar Imagen</p>
 					<input type="file" asp-for="Candidato.PhotoCandidato" multiple="" accept="image/*" onchange="cargar()">
 
@@ -78,6 +106,11 @@
 					<label for="AntPen">Antecedentes no penales</label>
 					<input id="Antecedentes" type="checkbox" />
 				</div>
+
+				<div>
+					<a href="#" class="btn btn-primary m-1 ">Registar</a>
+				</div>
+
 			</div>
 			<h4>Referencias laborales</h4>
 			<p style="color:red; font-size:12px;">Referencia 1</p>
@@ -232,9 +265,7 @@
 
 			</table>
 			<link href="~/css/TablaOrden.css" rel="stylesheet" />
-			<div>
-				<a href="#" class="btn btn-primary m-1 ">Guardar</a>
-			</div>
+			
 		</form>>
 
 	</body>

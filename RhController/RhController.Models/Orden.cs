@@ -9,10 +9,11 @@ namespace RhController.Models
 	public class Orden : BaseEntity
 
 	{
-		
+
 		// se retiro el ID y el estatus por que ahora hereda de BaseEntity
 
-		
+		public string  PuestoSolicitado { get; set; }
+
 		public ICollection<Candidato> Candidatos { get; set; }
 
 		[Display(Name = "Empresa")]

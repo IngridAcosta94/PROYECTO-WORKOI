@@ -31,7 +31,7 @@ namespace RhUI.Pages.Proyect
             this.Candidatorepository = repository;
             HostEnvironment = hostEnvironment;
         }
-        public CrearOrdenModel (IProyecto<Orden> repository, IWebHostEnvironment hostEnvironment)
+       /* public CrearOrdenModel (IProyecto<Orden> repository, IWebHostEnvironment hostEnvironment)
         {
             
             this.Ordenrepository = repository;
@@ -48,7 +48,7 @@ namespace RhUI.Pages.Proyect
         public void OnGet()
         {
 
-        }
+        }*/
 
         public IActionResult OnPost()
         {
