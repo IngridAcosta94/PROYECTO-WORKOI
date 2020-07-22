@@ -1,0 +1,85 @@
+﻿@page
+@model RhUI.Pages.Proyect.PageEmpresa.IndexEmpresaModel
+@{
+}
+
+	
+
+<header>
+	<script src="~/js/sorttable.js"></script>
+</header>
+
+<h2>Administración de Empresas</h2>
+
+<form>
+	<p>
+		 Busqueda por Nombre: <input type="text" asp-for="SearchString" />
+		<input class="btn btn-outline-primary btn-sm" type="submit" value="Buscar" />
+	</p>
+</form>
+
+<p>
+	<a class="btn btn-primary" asp-page="Create">Registrar Empresa</a>
+</p>
+<table class="sortable table">
+	<thead>
+		<tr>
+			<th>
+				Id Empresa
+			</th>
+			<th>
+				Nombre
+			</th>
+			<th>
+				Telefono
+			</th>
+			<th>
+				Fecha Registro
+			</th>
+			<th>
+				Correo
+			</th>
+			<th>
+				Dirección
+			</th>
+			<th>
+				Perfil
+			</th>
+			<th>
+            </th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model.Empresa)
+		{
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.Id)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Nombre)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Telefono)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.CreatedAT)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Correo)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Direccion)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Perfil.Nombre)
+			</td>
+			<td>
+				<a class="btn btn-success btn-sm" asp-page="./Edit" asp-route-id="@item.Id">Editar</a> |
+				<a class="btn btn-info btn-sm" asp-page="./Details" asp-route-id="@item.Id">Detalles</a> |
+				<a class="btn btn-danger btn-sm" asp-page="./Delete" asp-route-id="@item.Id">Eliminar</a>
+			</td>
+		</tr>
+		}
+	</tbody>
+</table>

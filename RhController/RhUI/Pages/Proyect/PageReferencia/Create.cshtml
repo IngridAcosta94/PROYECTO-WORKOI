@@ -1,0 +1,129 @@
+﻿@page
+@model RhUI.Pages.Proyect.PageReferencia.CreateModel
+@{
+
+	ViewData["Title"] = "Referencia";
+	<!doctype html>
+	<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>@ViewData["Title"] - Work-Io</title>
+	</head>
+	<body style="margin-right:50px; background-color:white; margin-left:50px; margin-top:25px; border:double; border-color:darkmagenta;">
+		<link href="~/css/NWKBZdV.css" rel="stylesheet" />
+		<script src="~/js/NWKBZdV.js"></script>
+		<h3>Registro de Referencias</h3>
+		<p style="color:black; font-size:25px;">Candidato</p>
+		<form>
+
+			<h4>Referencias laborales</h4>
+			<p style="color:red; font-size:12px;">Referencia 1</p>
+			<div>
+				<label asp-for="Referencia.CandidatoId">Seleccione el Candidato</label>
+				<select asp-for="Referencia.CandidatoId" asp-items="@(new SelectList(Model.CandidatoList, "Id" , "Puesto"))">
+					<option>Selecciona el Candidato </option>
+				</select>
+			</div>
+			<br>
+			<br>
+			<div class="container ">
+				<label asp-for="Referencia.Nombre">Nombre Comercial:</label>
+				<input type="text" asp-for="Referencia.Nombre" class="form-control form-text" placeholder="Nombre">
+				<label asp-for="Referencia.Telefono1">Tel 1:</label>
+				<input type="text" asp-for="Referencia.Telefono1" class="form-control form-text" placeholder="Tel1">
+				<label asp-for="Referencia.Telefono2">Tel 2:</label>
+				<input type="text" asp-for="Referencia.Telefono2" class="form-control form-text" placeholder="Tel2">
+				<label asp-for="Referencia.Telefono3">Tel 3:</label>
+				<input type="text" asp-for="Referencia.Telefono3" class="form-control form-text" placeholder="Tel3">
+
+			</div>
+			<br>
+			<br>
+			<div>
+				<label asp-for="Referencia.RazonSocial">Razon Social:</label>
+				<input type="text" asp-for="Referencia.RazonSocial" class="form-control form-text" placeholder="Razoon Social">
+				<br>
+				<br>
+				<label asp-for="Referencia.Direccion">Direccion:</label>
+				<input type="text" asp-for="Referencia.Direccion" class="form-control form-text" placeholder="Direccion">
+
+			</div>
+			<br>
+			<br>
+			<div>
+				<label asp-for="Referencia.NombreJefe">Nombre Jefe Inmediato:</label>
+				<input type="text" asp-for="Referencia.NombreJefe" class="form-control form-text" placeholder="Jefe">
+				<br>
+				<br>
+				<label asp-for="Referencia.PuestoJefe">Puesto Jefe Inmediato:</label>
+				<input type="text" asp-for="Referencia.PuestoJefe" class="form-control form-text" placeholder="Puesto">
+			</div>
+			<br>
+			<br>
+			<div>
+				<label asp-for="Referencia.NombreInformante">Nombre del Informante:</label>
+				<input type="text" asp-for="Referencia.NombreInformante" class="form-control form-text" placeholder="Informante">
+				<br>
+				<br>
+				<label asp-for="Referencia.PuestoInformante">Puesto del Informante:</label>
+				<input type="text" asp-for="Referencia.PuestoInformante" class="form-control form-text" placeholder="Puesto">
+			</div>
+			<br>
+			<br>
+			<div>
+				<label asp-for="Referencia.Puesto">Puesto que ocupo el candidato:</label>
+				<input type="text" asp-for="Referencia.Puesto" class="form-control form-text" placeholder="Puesto anterior">
+				<br>
+				<br>
+				<label for="">Prestaciones:</label>
+				<label asp-for="Referencia.SueldoInicial">Inicial</label>
+				<input type="text" asp-for="Referencia.SueldoInicial" class="form-control form-text" placeholder="Sueldo Inicial">
+				<br>
+				<br>
+				<label asp-for="Referencia.SueldoFinal">Final</label>
+				<input type="text" asp-for="Referencia.SueldoFinal" class="form-control form-text" placeholder="Sueldo Final">
+			</div>
+			<br>
+			<br>
+			<div>
+				<label asp-for="Referencia.FechaInicLab">Fecha inicio de labores:</label>
+				<input type="text" asp-for="Referencia.FechaInicLab" class="form-control form-text" placeholder="Inicio Labores">
+				<br>
+				<br>
+				<label asp-for="Referencia.FechaFinLab">Fecha de separacion:</label>
+				<input type="text" asp-for="Referencia.FechaFinLab" class="form-control form-text" placeholder="Fin Labores">
+				<br>
+				<br>
+				<label asp-for="Referencia.MotivoSeparacion">Motivo de separacion:</label>
+				<input type="text" asp-for="Referencia.MotivoSeparacion" class="form-control form-text" placeholder="Motivo separacion">
+
+			</div>
+			<br>
+			<br>
+
+			<div>
+				<label asp-for="Referencia.Comentarios">Comentarios:</label>
+				<input type="text" asp-for="Referencia.Comentarios" class="form-control form-text" placeholder="">
+			</div>
+
+			<div><button type="submit" value="" class="btn btn-outline-primary ">Registrar</button></div>
+			<br>
+			<br>
+
+
+
+		</form>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+}

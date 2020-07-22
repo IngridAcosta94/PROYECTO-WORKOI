@@ -1,0 +1,65 @@
+﻿@page
+@model RhUI.Pages.Proyect.PageOrden.CreateModel
+@{
+	ViewData["Title"] = "Orden";
+
+	<!doctype html>
+	<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>@ViewData["Title"] - Work-Io</title>
+	</head>
+	<body style="margin-right:50px; background-color:white; margin-left:50px; margin-top:25px; border:double; border-color:darkmagenta;">
+		<form method="post" enctype="multipart/form-data">
+
+
+			<div class="container">
+				<h3>Crear Orden</h3>
+				<label asp-for="Orden.EmpresaId">Seleccione el nombre de su empresa</label>
+				<select asp-for="Orden.EmpresaId" asp-items="@(new SelectList(Model.EmpresaList, "Id" , "Nombre"))">
+					<option>Selecciona Empresa </option>
+
+				</select>
+				<br>
+				<br>
+				<label asp-for="Orden.PuestoSolicitado ">Ingrese un nombre del puesto que se solicita:</label>
+				<input type="text" asp-for="Orden.PuestoSolicitado" class="form-control form-text" placeholder="Puesto solicitado">
+				<br>
+				<br>
+				<label asp-for="Orden.CreatedAT">Fecha de Creación:</label>
+				<input type="text" asp-for="Orden.CreatedAT" placeholder="Fecha">
+				<br>
+				<br>
+			</div>
+			<div><button type="submit" value="" class="btn btn-success btn-block ">Crear</button></div>
+
+			<br>
+			<br>
+
+			<div>
+				<button asp-page="/Proyect/RegistrarCandidato">Siguiente</button>
+			</div>
+			<div class=""><a asp-page="/Proyect/Index" class="btn btn-primary">Cancelar</a></div>
+		</form>
+
+		<link href="~/css/NWKBZdV.css" rel="stylesheet" />
+		<script src="~/js/NWKBZdV.js"></script>
+
+	</body>
+
+
+
+
+
+</html>
+
+
+
+
+
+
+
+
+
+}

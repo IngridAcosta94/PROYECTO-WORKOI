@@ -1,0 +1,97 @@
+﻿@page
+@model RhUI.Pages.Proyect.PageEmpresa.CreateModel
+@{
+
+	ViewData["Title"] = "Referencia";
+	<!doctype html>
+	<html>
+
+
+	<body style="margin-right:50px; background-color:white; margin-left:50px; margin-top:25px; border:double; border-color:darkmagenta;">
+		<link href="~/css/NWKBZdV.css" rel="stylesheet" />
+		<script src="~/js/NWKBZdV.js"></script>
+		<h3>Registro de Empresas</h3>
+		<p style="color:black; font-size:25px;">Empresa</p>
+		<form method="post" enctype="multipart/form-data">
+
+			<div>
+
+				<div class="form-group">
+					<label asp-for="Empresa.Nombre">Nombre:</label>
+					<input type="text" asp-for="Empresa.Nombre" class="form-control" style="width : 500px; heigth : 1px" placeholder="Nombre Empresa">
+					<span class="text-danger" asp-validation-for="Empresa.Nombre"></span>
+					<span asp-validation-for="Empresa.Nombre" class="text-danger"></span>
+					<br>
+				</div>
+
+				<div class="form-group">
+					<label asp-for="Empresa.Telefono">Telefono:</label>
+					<input type="text" asp-for="Empresa.Telefono" class="form-control " style="width : 500px; heigth : 1px" placeholder="Telefono">
+					<span asp-validation-for="Empresa.Telefono" class="text-danger"></span>
+
+				</div>
+
+				<div class="form-group">
+					<label asp-for="Empresa.CreatedAT">Fecha de registro:</label>
+					<p>Formato ejemplo:12-07-2020</p>
+					<input type="text" asp-for="Empresa.CreatedAT" class="form-control " style="width : 500px; heigth : 1px" placeholder="Fecha registro">
+					<span asp-validation-for="Empresa.CreatedAT" class="text-danger"></span>
+				</div>
+
+				<br>
+				<div class="form-group">
+					<label asp-for="Empresa.Correo">Correo:</label>
+					<input type="text" asp-for="Empresa.Correo" class="form-control" style="width : 500px; heigth : 1px" placeholder="Correo">
+					<span asp-validation-for="Empresa.Correo" class="text-danger"></span>
+				</div>
+
+				<div class="form-group">
+					<label asp-for="Empresa.Direccion">Direccion:</label>
+					<input type="text" asp-for="Empresa.Direccion" class="form-control"  style="width : 500px; heigth : 1px" placeholder="Direccion">
+					<span asp-validation-for="Empresa.Direccion" class="text-danger"></span>
+				</div>
+				<br>
+				<div class="form-group">
+					<label asp-for="Empresa.PerfilId">Seleccione el perfil de la empresa</label>
+					<select asp-for="Empresa.PerfilId" asp-items="@(new SelectList(Model.PerfilList, "Id" , "Nombre"))">
+						<option>Selecciona un perfil </option>
+
+					</select>
+					<span asp-validation-for="Empresa.Perfil.Id" class="text-danger"></span>
+				</div>
+
+
+
+			</div>
+
+				<br>
+				<br>
+				<div><button type="submit" value="" class="btn btn-success">Registrar</button></div>
+
+				<div class=""><a asp-page="./IndexEmpresa" class="btn btn-primary">Cancelar</a></div>
+
+</form>
+
+	</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

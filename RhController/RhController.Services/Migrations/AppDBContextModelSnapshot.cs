@@ -19,41 +19,6 @@ namespace RhController.Services.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("RhController.Models.Asesor", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Apellido")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Correo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedAT")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Nombre")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("PerfilId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("Status")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("UpdatedAT")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PerfilId");
-
-                    b.ToTable("Asesores");
-                });
-
             modelBuilder.Entity("RhController.Models.Candidato", b =>
                 {
                     b.Property<int>("Id")
@@ -70,20 +35,20 @@ namespace RhController.Services.Migrations
                     b.Property<DateTime>("CreatedAT")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("DcumentacionId")
-                        .HasColumnType("int");
+                    b.Property<string>("Curp")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("DocumentoId")
-                        .HasColumnType("int");
+                    b.Property<string>("Direccion")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("EstadoCivil")
-                        .HasColumnType("bit");
+                    b.Property<string>("EstadoCivil")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("FechaNac")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Genero")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("Genero")
+                        .HasColumnType("bit");
 
                     b.Property<int>("NacionalidadId")
                         .HasColumnType("int");
@@ -105,8 +70,6 @@ namespace RhController.Services.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DcumentacionId");
-
                     b.HasIndex("NacionalidadId");
 
                     b.HasIndex("OrdenId");
@@ -122,6 +85,76 @@ namespace RhController.Services.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Contraseña")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Correo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAT")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Nombre")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PerfilId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("UpdatedAT")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Usuario")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PerfilId");
+
+                    b.ToTable("Cuentas");
+                });
+
+            modelBuilder.Entity("RhController.Models.Documentacion", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("CandidatoId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAT")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Tipo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdatedAT")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CandidatoId");
+
+                    b.ToTable("Documentaciones");
+                });
+
+            modelBuilder.Entity("RhController.Models.Empleado", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Apellido")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Correo")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedAT")
@@ -143,31 +176,7 @@ namespace RhController.Services.Migrations
 
                     b.HasIndex("PerfilId");
 
-                    b.ToTable("Cuentas");
-                });
-
-            modelBuilder.Entity("RhController.Models.Documentacion", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreatedAT")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("Status")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Tipo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("UpdatedAT")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Documentaciones");
+                    b.ToTable("Empleados");
                 });
 
             modelBuilder.Entity("RhController.Models.Empresa", b =>
@@ -202,6 +211,8 @@ namespace RhController.Services.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("PerfilId");
 
                     b.ToTable("Empresas");
                 });
@@ -243,6 +254,9 @@ namespace RhController.Services.Migrations
                     b.Property<int>("EmpresaId")
                         .HasColumnType("int");
 
+                    b.Property<string>("PuestoSolicitado")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
 
@@ -269,9 +283,6 @@ namespace RhController.Services.Migrations
                     b.Property<string>("Nombre")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PermisoId")
-                        .HasColumnType("int");
-
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
 
@@ -293,8 +304,8 @@ namespace RhController.Services.Migrations
                     b.Property<DateTime>("CreatedAT")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Nombre")
-                        .HasColumnType("int");
+                    b.Property<string>("Nombre")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
@@ -356,19 +367,22 @@ namespace RhController.Services.Migrations
                     b.Property<string>("RazonSocial")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("ReferenciaId")
-                        .HasColumnType("int");
-
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
 
-                    b.Property<string>("SueldoFinal")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("SueldoFinal")
+                        .HasColumnType("int");
 
                     b.Property<int>("SueldoInicial")
                         .HasColumnType("int");
 
-                    b.Property<string>("Telefono")
+                    b.Property<string>("Telefono1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Telefono2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Telefono3")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("UpdatedAT")
@@ -383,21 +397,8 @@ namespace RhController.Services.Migrations
                     b.ToTable("Referencias");
                 });
 
-            modelBuilder.Entity("RhController.Models.Asesor", b =>
-                {
-                    b.HasOne("RhController.Models.Perfil", "Perfil")
-                        .WithMany()
-                        .HasForeignKey("PerfilId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("RhController.Models.Candidato", b =>
                 {
-                    b.HasOne("RhController.Models.Documentacion", "Dcumentacion")
-                        .WithMany()
-                        .HasForeignKey("DcumentacionId");
-
                     b.HasOne("RhController.Models.Nacionalidad", "Nacionalidad")
                         .WithMany()
                         .HasForeignKey("NacionalidadId")
@@ -412,6 +413,31 @@ namespace RhController.Services.Migrations
                 });
 
             modelBuilder.Entity("RhController.Models.Cuenta", b =>
+                {
+                    b.HasOne("RhController.Models.Perfil", "Perfil")
+                        .WithMany()
+                        .HasForeignKey("PerfilId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("RhController.Models.Documentacion", b =>
+                {
+                    b.HasOne("RhController.Models.Candidato", null)
+                        .WithMany("Documentos")
+                        .HasForeignKey("CandidatoId");
+                });
+
+            modelBuilder.Entity("RhController.Models.Empleado", b =>
+                {
+                    b.HasOne("RhController.Models.Perfil", "Perfil")
+                        .WithMany()
+                        .HasForeignKey("PerfilId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("RhController.Models.Empresa", b =>
                 {
                     b.HasOne("RhController.Models.Perfil", "Perfil")
                         .WithMany()

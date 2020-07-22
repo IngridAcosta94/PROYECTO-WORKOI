@@ -18,7 +18,7 @@ namespace RhController.Models
 		public string Correo { get; set; }
 
 
-		[Display(Name = "Perfil")]
+		[Display(Name = "PerfilId")]
 		[Required(ErrorMessage = "El perfil es requerido.")]
 		[ForeignKey("Perfil")]
 		public int PerfilId { get; set; }

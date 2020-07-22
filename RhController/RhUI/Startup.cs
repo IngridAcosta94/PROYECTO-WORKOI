@@ -2,14 +2,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RhController.Services;
+using RhUI.Models.DB;
 
 namespace RhUI
 {
@@ -40,11 +43,43 @@ namespace RhUI
                 option.LowercaseUrls = true;
                 option.LowercaseQueryStrings = true;
                 option.AppendTrailingSlash = true;
+
             });
+
+
+			/*
+			services.AddAuthentication(options =>
+			{
+				options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+				options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+				options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+			}).AddCookie(options =>
+			{
+				options.LoginPath = new PathString("/Index");
+				options.ExpireTimeSpan = TimeSpan.FromMinutes(5.0);
+			});
+
+			// [Asma Khalid]: configuración de autorización.  
+			services.AddMvc().AddRazorPagesOptions(options =>
+			{
+				options.Conventions.AuthorizeFolder("/");
+				options.Conventions.AllowAnonymousToPage("/Index");
+			});*/
+
+			// [Asma Khalid]: registra el contexto de configuración de la base de datos SQL como servicios.    
+			//services.AddDbContext<PROYECTOWORKContext>(opciones => opciones.UseSqlServer(Configuration.GetConnectionString("EFDbConnection")));
 		}
+			
+
+
+
+
+
+		
+		
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+		public void Configure (IApplicationBuilder app, IWebHostEnvironment env)
 		{
 			if (env.IsDevelopment())
 			{

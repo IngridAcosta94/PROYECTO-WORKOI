@@ -7,7 +7,7 @@ namespace RhController.Models
 	public class Puesto : BaseEntity
 	{
 		
-		public int Nombre { get; set; }
+		public string Nombre { get; set; }
 
 	}
 }

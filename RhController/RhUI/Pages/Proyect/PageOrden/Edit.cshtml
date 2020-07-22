@@ -1,0 +1,46 @@
+﻿@page
+@model RhUI.Pages.Proyect.PageOrden.EditModel
+@{
+}
+
+<h2>Editar información</h2>
+
+<h4>Orden</h4>
+<hr />
+<div class="row">
+	<div class="col-md-4">
+		<form method="post">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<input type="hidden" asp-for="Orden.Id" />
+			<div class="form-group">
+				<label asp-for="Orden.Id" class="control-label">Clave de entidad: </label>
+				<input asp-for="Orden.Id" class="form-control" />
+				<span asp-validation-for="Orden.Id" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Orden.Empresa.Nombre" class="control-label">Nombre: </label>
+				<input asp-for="Orden.Empresa.Nombre" class="form-control" />
+				<span asp-validation-for="Orden.Empresa.Nombre" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Orden.PuestoSolicitado" class="control-label">Fecha de creación: </label>
+				<input asp-for="Orden.PuestoSolicitado" class="form-control" />
+				<span asp-validation-for="Orden.PuestoSolicitado" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Orden.CreatedAT" class="control-label"></label>
+				<input asp-for="Orden.CreatedAT" class="form-control" />
+				<span asp-validation-for="Orden.CreatedAT" class="text-danger"></span>
+			</div>
+			
+			<div class="form-group">
+				<input type="submit" value="Guardar" class="btn btn-primary" /> |
+				<a class="btn btn-secondary" asp-page="./Index">Cancelar</a>
+			</div>
+		</form>
+	</div>
+</div>
+
+@section Scripts {
+	@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

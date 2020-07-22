@@ -8,10 +8,11 @@ namespace RhController.Models
 	{
 		
 		public string Tipo { get; set; }
+		public  int CandidatoId { get; set; }
+		public Candidato Candidato { get; set; }
 
 
 
-		
 
 	}
 }

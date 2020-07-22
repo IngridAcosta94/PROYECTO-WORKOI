@@ -1,0 +1,43 @@
+﻿@page
+@model RhUI.Pages.Proyect.PageOrden.DetailsModel
+@{
+}
+
+
+<h2>Detalles de la Orden</h2>
+
+<div>
+	<hr />
+	<dl class="row">
+		<dt class="col-sm-3">
+			Id:
+		</dt>
+		<dd class="col-sm-9">
+			@Html.DisplayFor(model => model.Orden.Id)
+		</dd>
+		<dt class="col-sm-3">
+			Empresa que lo solicita:
+		</dt>
+		<dd class="col-sm-9">
+			@Html.DisplayFor(model => model.Orden.Empresa.Nombre)
+		</dd>
+		<dt class="col-sm-3">
+			Puesto Solicitado:
+		</dt>
+		<dd class="col-sm-9">
+			@Html.DisplayFor(model => model.Orden.PuestoSolicitado)
+		</dd>
+		<dt class="col-sm-3">
+			Fecha de creación:
+		</dt>
+
+		<dt class="col-sm-3">
+			@Html.DisplayNameFor(model => model.Orden.CreatedAT)
+		</dt>
+
+	</dl>
+</div>
+<div>
+	<a class="btn btn-success" asp-page="./Edit" asp-route-id="@Model.Orden.Id">Editar</a> |
+	<a class="btn btn-secondary" asp-page="./Index">Regresar</a>
+</div>

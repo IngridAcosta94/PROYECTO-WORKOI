@@ -9,12 +9,15 @@ namespace RhController.Models
 	public class ReferenciaLab : BaseEntity
 
 	{
-		[Display(Name = "Id")]
-		public int ReferenciaId { get; set; }
+		
 		[Display(Name = "Nombre")]
 		public string Nombre { get; set; }
-		[Display(Name = "Telefono")]
-		public string Telefono { get; set; }
+		[Display(Name = "Telefono1")]
+		public string Telefono1 { get; set; }
+		[Display(Name = "Telefono2")]
+		public string Telefono2 { get; set; }
+		[Display(Name = "Telefono3")]
+		public string Telefono3 { get; set; }
 		[Display(Name = "Direccion")]
 		public string Direccion { get; set; }
 		[Display(Name = "RazonSocial")]
@@ -30,8 +33,10 @@ namespace RhController.Models
 		[Display(Name = "SueldoInicial")]
 		public int SueldoInicial { get; set; }
 		[Display(Name = "SueldoFinal")]
-		public string SueldoFinal { get; set; }
+		public int SueldoFinal { get; set; }
 		
+
+
 		public DateTime FechaInicLab { get; set; }
 		public DateTime FechaFinLab { get; set; }
 		[Display(Name = "Motivo Separacion")]

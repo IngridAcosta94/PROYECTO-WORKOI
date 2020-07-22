@@ -20,11 +20,14 @@ namespace RhController.Models
 		//public string PhotoEmpresa { get; set; }
 		
 		public ICollection<Orden> Ordenes { get; set; }
-
+		
 		[Display(Name = "Perfil")]
 		[Required(ErrorMessage = "El perfil es requerido.")]
 		[ForeignKey("Perfil")]
 		public int PerfilId { get; set; }
+		public Perfil Perfil { get; set; }
+
+
 
 
 	}

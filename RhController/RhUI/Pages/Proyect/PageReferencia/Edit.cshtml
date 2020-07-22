@@ -1,0 +1,116 @@
+﻿@page
+@model RhUI.Pages.Proyect.PageReferencia.EditModel
+@{
+}
+
+<h2>Editar información</h2>
+
+<h4>Referencia</h4>
+<hr />
+<div class="row">
+	<div class="col-md-4">
+		<form method="post">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<input type="hidden" asp-for="ReferenciaLab.Id" />
+			<div class="form-group">
+				<label asp-for="ReferenciaLab.Id" class="control-label">Id Referencia: </label>
+				<input asp-for="ReferenciaLab.Id" class="form-control" />
+				<span asp-validation-for="ReferenciaLab.Id" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="ReferenciaLab.Candidato.Nombre" class="control-label">Nombre: </label>
+				<input asp-for="ReferenciaLab.Candidato.Nombre" class="form-control" />
+				<span asp-validation-for="ReferenciaLab.Candidato.Nombre" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="ReferenciaLab.Telefono1" class="control-label">Fecha de creación: </label>
+				<input asp-for="ReferenciaLab.Telefono1" class="form-control" />
+				<span asp-validation-for="ReferenciaLab.Telefono1" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="ReferenciaLab.Telefono2" class="control-label">Fecha de creación: </label>
+				<input asp-for="ReferenciaLab.Telefono2" class="form-control" />
+				<span asp-validation-for="ReferenciaLab.Telefono2" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="ReferenciaLab.Telefono3" class="control-label">Fecha de creación: </label>
+				<input asp-for="ReferenciaLab.Telefono3" class="form-control" />
+				<span asp-validation-for="ReferenciaLab.Telefono3" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="ReferenciaLab.RazonSocial" class="control-label"></label>
+				<input asp-for="ReferenciaLab.RazonSocial" class="form-control" />
+				<span asp-validation-for="ReferenciaLab.RazonSocial" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="ReferenciaLab.Direccion" class="control-label"></label>
+				<input asp-for="ReferenciaLab.Direccion" class="form-control" />
+				<span asp-validation-for="ReferenciaLab.Direccion" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="ReferenciaLab.NombreJefe" class="control-label"></label>
+				<input asp-for="ReferenciaLab.NombreJefe" class="form-control" />
+				<span asp-validation-for="ReferenciaLab.NombreJefe" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="ReferenciaLab.PuestoJefe" class="control-label"></label>
+				<input asp-for="ReferenciaLab.PuestoJefe" class="form-control" />
+				<span asp-validation-for="ReferenciaLab.PuestoJefe" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="ReferenciaLab.NombreInformante" class="control-label"></label>
+				<input asp-for="ReferenciaLab.NombreInformante" class="form-control" />
+				<span asp-validation-for="ReferenciaLab.NombreInformante" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="ReferenciaLab.PuestoInformante" class="control-label"></label>
+				<input asp-for="ReferenciaLab.PuestoInformante" class="form-control" />
+				<span asp-validation-for="ReferenciaLab.PuestoInformante" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="ReferenciaLab.Puesto" class="control-label"></label>
+				<input asp-for="ReferenciaLab.Puesto" class="form-control" />
+				<span asp-validation-for="ReferenciaLab.Puesto" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="ReferenciaLab.SueldoInicial" class="control-label"></label>
+				<input asp-for="ReferenciaLab.SueldoInicial" class="form-control" />
+				<span asp-validation-for="ReferenciaLab.SueldoInicial" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="ReferenciaLab.SueldoFinal" class="control-label"></label>
+				<input asp-for="ReferenciaLab.SueldoFinal" class="form-control" />
+				<span asp-validation-for="ReferenciaLab.SueldoFinal" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="ReferenciaLab.FechaInicLab" class="control-label"></label>
+				<input asp-for="ReferenciaLab.FechaInicLab" class="form-control" />
+				<span asp-validation-for="ReferenciaLab.FechaInicLab" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="ReferenciaLab.FechaFinLab" class="control-label"></label>
+				<input asp-for="ReferenciaLab.FechaFinLab" class="form-control" />
+				<span asp-validation-for="ReferenciaLab.FechaFinLab" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="ReferenciaLab.MotivoSeparacion" class="control-label"></label>
+				<input asp-for="ReferenciaLab.MotivoSeparacion" class="form-control" />
+				<span asp-validation-for="ReferenciaLab.MotivoSeparacion" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="ReferenciaLab.Comentarios" class="control-label"></label>
+				<input asp-for="ReferenciaLab.Comentarios" class="form-control" />
+				<span asp-validation-for="ReferenciaLab.Comentarios" class="text-danger"></span>
+			</div>
+
+			<div class="form-group">
+				<input type="submit" value="Guardar" class="btn btn-primary" /> |
+				<a class="btn btn-secondary" asp-page="./Index">Cancelar</a>
+			</div>
+		</form>
+	</div>
+</div>
+
+@section Scripts {
+	@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

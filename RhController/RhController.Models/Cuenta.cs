@@ -10,7 +10,9 @@ namespace RhController.Models
 	{
 		
 		public string Nombre { get; set; }
+		public string Usuario { get; set; }
 		public string Contraseña { get; set; }
+        public string Correo { get; set; }
 
 		[Display(Name = "Perfil")]
 		[Required(ErrorMessage = "La nacionalidad es requerido")]

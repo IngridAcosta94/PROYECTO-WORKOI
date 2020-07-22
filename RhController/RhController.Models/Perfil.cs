@@ -10,12 +10,7 @@ namespace RhController.Models
 	{
 		
 		public string Nombre { get; set; }
-
-		[Display(Name = "Permiso")]
-		[Required(ErrorMessage = "El permiso es requerido.")]
-		[ForeignKey("Permiso")]
-		public int PermisoId { get; set; }
+    }
 		
-
-	}
 }
+
