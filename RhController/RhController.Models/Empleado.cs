@@ -8,10 +8,11 @@ namespace RhController.Models
 {
 	public class Empleado : BaseEntity
 	{
-
 		[Display(Name = "Nombre")]
+        [Required(ErrorMessage = "El Nombre es requerido.")]
 		public string Nombre { get; set; }
 		[Display(Name = "Apellido")]
+		[Required(ErrorMessage = "El Apellido es requerido.")]
 		public string Apellido { get; set; }
 		[Display(Name = "Correo")]
 		[EmailAddress(ErrorMessage = " Debe de ser un correo valido")]

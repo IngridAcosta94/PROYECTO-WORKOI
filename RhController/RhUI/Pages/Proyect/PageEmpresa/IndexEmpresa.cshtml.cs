@@ -29,7 +29,7 @@ namespace RhUI.Pages.Proyect.PageEmpresa
 
         [BindProperty(SupportsGet = true)]
         public string Empresass { get; set; }
-
+        public string Perfiless { get; set; }
 
 
         public IList<Empresa> Empresa { get; set; }
@@ -49,7 +49,7 @@ namespace RhUI.Pages.Proyect.PageEmpresa
             }
 
             BuscarEmpresa = new SelectList(await genreQuery.Distinct().ToListAsync());
-            Empresa = await Emp.ToListAsync();
+            Empresa = await Emp.Include(l => l.Perfil).ToListAsync();
         }
     }
 }

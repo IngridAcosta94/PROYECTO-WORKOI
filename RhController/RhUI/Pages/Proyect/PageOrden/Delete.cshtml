@@ -3,47 +3,48 @@
 @{
 	ViewData["Title"] = "Eliminar";
 }
+	<body style="margin-right:50px; background-color:white; margin-left:50px; margin-top:25px; border:double; border-color:darkmagenta;">
+		<h2>Eliminar Orden</h2>
 
-<h2>Eliminar Orden</h2>
-
-<h3>¿Está seguro que deseas eliminar esta Orden?</h3>
-<div>
-	<hr />
-	<dl class="row">
-		<dt class="col-sm-3">
-			Id Orden:
-		</dt>
-		<dd class="col-sm-9">
-			@Html.DisplayFor(model => model.Orden.Id)
-		</dd>
-		<dt class="col-sm-3">
-			Nombre:
-		</dt>
-		<dd class="col-sm-9">
-			@Html.DisplayFor(model => model.Orden.PuestoSolicitado)
-		</dd>
-		<dt class="col-sm-3">
-			Empresa al que pertenece:
-		</dt>
-		<dd class="col-sm-9">
-			@Html.DisplayFor(model => model.Orden.Empresa.Nombre)
-		</dd>
-		<dt class="col-sm-3">
-			Fecha de creación:
-		</dt>
-		<dt class="col-sm-3">
-			@Html.DisplayNameFor(model => model.Orden.CreatedAT)
-		</dt>
+		<h3>¿Está seguro que deseas eliminar esta Orden?</h3>
+		<div>
+			<hr />
+			<dl class="row">
+				<dt class="col-sm-3">
+					Id Orden:
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.Orden.Id)
+				</dd>
+				<dt class="col-sm-3">
+					Nombre:
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.Orden.PuestoSolicitado)
+				</dd>
+				<dt class="col-sm-3">
+					Empresa al que pertenece:
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.Orden.Empresa.Nombre)
+				</dd>
+				<dt class="col-sm-3">
+					Fecha de creación:
+				</dt>
+				<dt class="col-sm-3">
+					@Html.DisplayFor(model => model.Orden.CreatedAT)
+				</dt>
 
 
 
-	</dl>
+			</dl>
 
-	<!--pasamos el id para asegurarnos de que lo que eliminara sera el corecto  -->
-	<form method="post">
-		<input type="hidden" asp-for="Orden.Id" />
-		<input type="submit" value="Eliminar" class="btn btn-danger" /> |
-		<a class="btn btn-secondary" asp-page="./Index">Cancelar</a>
-	</form>
+			<!--pasamos el id para asegurarnos de que lo que eliminara sera el corecto  -->
+			<form method="post">
+				<input type="hidden" asp-for="Orden.Id" />
+				<input type="submit" value="Eliminar" class="btn btn-danger" /> |
+				<a class="btn btn-secondary" asp-page="./IndexOrden">Cancelar</a>
+			</form>
 
-</div>
+		</div>
+</body>

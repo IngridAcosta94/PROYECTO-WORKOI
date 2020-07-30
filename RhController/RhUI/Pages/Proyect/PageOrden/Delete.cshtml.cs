@@ -29,7 +29,7 @@ namespace RhUI.Pages.Proyect.PageOrden
             }
 
             Orden = await _context.Ordenes
-                .Include(e => e.EmpresaId).FirstOrDefaultAsync(m => m.Id == id);
+                .Include(e => e.Empresa).FirstOrDefaultAsync(m => m.Id == id);
 
             if (Orden == null)
             {
@@ -53,7 +53,7 @@ namespace RhUI.Pages.Proyect.PageOrden
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage("/Proyect/CrearOrden");
+            return RedirectToPage("./Delete");
         }
     }
 

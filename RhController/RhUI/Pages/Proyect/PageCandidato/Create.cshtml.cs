@@ -16,18 +16,21 @@ namespace RhUI.Pages.Proyect.PageCandidato
         public Candidato Candidato { get; set; }
 
         public IEnumerable<Orden> OrdenList { get; set; }
+        public IEnumerable<Nacionalidad> NacionalidadList { get; set; }
 
         public IWebHostEnvironment HostEnvironment { get; }
 
         private readonly IProyecto<Candidato> repository;
         private readonly IProyecto<Orden> Ordenrepository;
+        private readonly IProyecto<Nacionalidad> Naciorepository;
 
 
-        public CreateModel(IProyecto<Candidato> repository, IProyecto<Orden> Ordenrepository, IWebHostEnvironment hostEnvironment)
+        public CreateModel(IProyecto<Candidato> repository, IProyecto<Orden> Ordenrepository, IProyecto<Nacionalidad> Naciorepository, IWebHostEnvironment hostEnvironment)
         {
             this.repository = repository;
             HostEnvironment = hostEnvironment;
             this.OrdenList = Ordenrepository.GetAll();
+            this.NacionalidadList = Naciorepository.GetAll();
         }
 
 
@@ -44,7 +47,7 @@ namespace RhUI.Pages.Proyect.PageCandidato
             var CanId = repository.Insert(Candidato);
 
 
-            return RedirectToPage("/Proyect/RegistrarCandidato");
+            return RedirectToPage("./create");
 
         }
 

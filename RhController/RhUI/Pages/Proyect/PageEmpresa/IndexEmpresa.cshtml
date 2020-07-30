@@ -3,83 +3,110 @@
 @{
 }
 
-	
 
-<header>
-	<script src="~/js/sorttable.js"></script>
-</header>
 
-<h2>Administración de Empresas</h2>
+	<header>
+		<script src="~/js/sorttable.js"></script>
+		<script src="~/js/jspdf.debug.js"></script>
+	</header>
 
-<form>
+
+<body style="margin-right:50px; background-color:white; margin-left:50px; margin-top:25px; border:double; border-color:darkmagenta;">
+	<h2>Administración de Empresas</h2>
+
+	<form>
+		<p>
+			Busqueda por Nombre: <input type="text" asp-for="SearchString" />
+			<input class="btn btn-outline-primary btn-sm" type="submit" value="Buscar" />
+		</p>
+	</form>
+
 	<p>
-		 Busqueda por Nombre: <input type="text" asp-for="SearchString" />
-		<input class="btn btn-outline-primary btn-sm" type="submit" value="Buscar" />
+		<a class="btn btn-primary" asp-page="Create">Registrar Empresa</a>
 	</p>
-</form>
+	<div  id="customers">
+		<table id="tab_customers" class="table-striped sortable table">
+			<colgroup>
+				<col width="10%">
+				<col width="13%">
+				<col width="11%">
+				<col width="15%">
+				<col width="15%">
+				<col width="13%">
+				<col width="9%">
+				<col width="15%">
+			</colgroup>
+			<thead>
+				<tr>
+					<th>Id Empresa</th>
+					<th>Nombre</th>
+					<th>Telefono</th>
+					<th>Fecha Registro</th>
+					<th>Correo</th>
+					<th>Dirección</th>
+					<th>Perfil</th>
+					<th> </th>
+				</tr>
+			</thead>
+			<tbody>
 
-<p>
-	<a class="btn btn-primary" asp-page="Create">Registrar Empresa</a>
-</p>
-<table class="sortable table">
-	<thead>
-		<tr>
-			<th>
-				Id Empresa
-			</th>
-			<th>
-				Nombre
-			</th>
-			<th>
-				Telefono
-			</th>
-			<th>
-				Fecha Registro
-			</th>
-			<th>
-				Correo
-			</th>
-			<th>
-				Dirección
-			</th>
-			<th>
-				Perfil
-			</th>
-			<th>
-            </th>
-		</tr>
-	</thead>
-	<tbody>
-		@foreach (var item in Model.Empresa)
-		{
-		<tr>
-			<td>
-				@Html.DisplayFor(modelItem => item.Id)
-			</td>
-			<td>
-				@Html.DisplayFor(modelItem => item.Nombre)
-			</td>
-			<td>
-				@Html.DisplayFor(modelItem => item.Telefono)
-			</td>
-			<td>
-				@Html.DisplayFor(modelItem => item.CreatedAT)
-			</td>
-			<td>
-				@Html.DisplayFor(modelItem => item.Correo)
-			</td>
-			<td>
-				@Html.DisplayFor(modelItem => item.Direccion)
-			</td>
-			<td>
-				@Html.DisplayFor(modelItem => item.Perfil.Nombre)
-			</td>
-			<td>
-				<a class="btn btn-success btn-sm" asp-page="./Edit" asp-route-id="@item.Id">Editar</a> |
-				<a class="btn btn-info btn-sm" asp-page="./Details" asp-route-id="@item.Id">Detalles</a> |
-				<a class="btn btn-danger btn-sm" asp-page="./Delete" asp-route-id="@item.Id">Eliminar</a>
-			</td>
-		</tr>
-		}
-	</tbody>
-</table>
+
+				@foreach (var item in Model.Empresa)
+				{
+					<tr>
+						<td>@Html.DisplayFor(modelItem => item.Id)</td>
+						<td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+						<td>@Html.DisplayFor(modelItem => item.Telefono)</td>
+						<td>@Html.DisplayFor(modelItem => item.CreatedAT)</td>
+						<td>@Html.DisplayFor(modelItem => item.Correo)</td>
+						<td>@Html.DisplayFor(modelItem => item.Direccion)</td>
+						<td>@Html.DisplayFor(modelItem => item.Perfil.Nombre)</td>
+						<td><a class="btn btn-success btn-sm" asp-page="./Edit" asp-route-id="@item.Id">Editar</a> | <a class="btn btn-info btn-sm" asp-page="./Details" asp-route-id="@item.Id">Detalles</a> | <a class="btn btn-danger btn-sm" asp-page="./Delete" asp-route-id="@item.Id">Eliminar</a></td>
+					</tr>
+				}
+			</tbody>
+		</table>
+ </div>
+	
+	<div>
+		<button style="width : 100px; heigth : 1px " class="btn btn-success form-control" onclick="javascript:demoFromHTML()">Descargar PDF</button>
+	</div>
+
+	@section Scripts{
+
+		<script type="text/javascript">
+			function demoFromHTML() {
+				var pdf = new jsPDF('l', 'mm',  [297, 210]);
+				
+				source = $('#customers')[0];
+
+				
+				specialElementHandlers = {
+				
+					'#bypassme': function (element, renderer) {
+						
+						return true
+					}
+				};
+				margins = {
+					bottom: 10,
+					left: 10,
+					width: 600
+				};
+				
+				pdf.fromHTML(
+					source,
+					margins.left, 
+					margins.top, {
+					'width': margins.width,
+					'elementHandlers': specialElementHandlers
+				},
+					function (dispose) {
+						
+						pdf.save('Work-IO.pdf');
+					}
+					, margins);
+			}
+		</script>
+	}
+	</body>

@@ -1,0 +1,18 @@
+﻿canvas {
+	width: 100pt;
+	height: 100pt;
+	border: 3px solid red;
+}
+
+.columna {
+	width: 33%;
+	float: left;
+}
+
+@media (max-width: 500px) {
+
+	.columna {
+		width: auto;
+		float: none;
+	}
+}

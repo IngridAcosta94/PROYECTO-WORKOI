@@ -12,15 +12,16 @@
 						<form class="forms_form">
 							<fieldset class="forms_fieldset">
 								<div class="forms_field">
-									<input id="TxtUsuario" type="text" placeholder="Usuario" class="forms_field-input" required autofocus />
+									<input type="text" class="form-control" asp-for="@Model.Cuenta.Usuario" placeholder="Usuario" required="required">
 								</div>
 								<div class="forms_field">
-									<input id="TxtContraseña" type="password" placeholder="Contraseña" class="forms_field-input" required />
+									 <input type="password" class="form-control" asp-for="@Model.Cuenta.Contraseña" placeholder="Contraseña" required="required">
 								</div>
 							</fieldset>
 							<div class="forms_buttons">
 								<button id="btnSubmit" type="button" class="forms_buttons-forgot">Olvidaste tu contraseña?</button>
-								<input type="submit" value="Iniciar sesión" class="forms_buttons-action">
+								<input type="submit" value="Iniciar sesión" class="forms_buttons-action login-btn">
+
 							</div>
 						</form>
 					</div>
@@ -51,4 +52,5 @@
 
 
 	</body>
+
 }

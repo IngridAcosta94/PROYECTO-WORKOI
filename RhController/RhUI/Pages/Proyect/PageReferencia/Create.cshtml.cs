@@ -18,12 +18,15 @@ namespace RhUI.Pages.Proyect.PageReferencia
 
         private readonly IProyecto<ReferenciaLab> repository;
         private readonly IProyecto<Candidato> Candrepository;
+        private readonly IProyecto<Puesto> Puestorepository;
         public IEnumerable<Candidato> CandidatoList { get; set; }
+        public IEnumerable<Puesto> PuestoList { get; set; }
 
-        public CreateModel(IProyecto<ReferenciaLab> repository, IProyecto<Candidato> Candrepository, IWebHostEnvironment hostEnvironment)
+        public CreateModel(IProyecto<ReferenciaLab> repository, IProyecto<Candidato> Candrepository, IProyecto<Puesto> Puestorepository, IWebHostEnvironment hostEnvironment)
         {
             this.repository = repository;
             this.CandidatoList = Candrepository.GetAll();
+            this.PuestoList = Puestorepository.GetAll();
             HostEnvironment = hostEnvironment;
         }
 
@@ -39,7 +42,7 @@ namespace RhUI.Pages.Proyect.PageReferencia
 
             var id = repository.Insert(Referencia);
 
-            return RedirectToPage("/Proyect/RegistroReferencia");
+            return RedirectToPage("./Create");
 
         }
 

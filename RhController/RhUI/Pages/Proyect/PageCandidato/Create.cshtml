@@ -2,137 +2,105 @@
 @model RhUI.Pages.Proyect.PageCandidato.CreateModel
 @{
 	<!doctype html>
+	<title>@ViewData["Title"] - Work-Io</title>
+
+	<header>
+		<link href="~/css/imagen.css" rel="stylesheet" />
+		<script src="~/js/imagen.js"></script>
+		<script src="http://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js"></script>
+	</header>
+
 	<html>
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title>@ViewData["Title"] - Work-Io</title>
-
-
-	</head>
 	<body style="margin-right:50px; background-color:white; margin-left:50px; margin-top:25px; border:double; border-color:darkmagenta;">
-
-
-		<link href="~/css/NWKBZdV.css" rel="stylesheet" />
-		<script type="text/javascript" src="~/js/NWKBZdV.js"></script>
-		<h3>Registro de candidatos</h3>
-		<p style="color:red; font-size:12px;">Maximo registro de 10 candidatos por orden</p>
-
 		<form method="post" enctype="multipart/form-data">
-			<div class="container ">
 
-				<html>
-				<script src="http://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js"></script>
-				<canvas id="c1">
-				</canvas>
-				<h1>Cargar Imagen</h1>
-				<input type="file" id="f1" multiple="false" accept="image/*" onchange="cargar()">
-				<h2> Modificar Imagen </h2>
-				<input type="button" value="Hacer Rojo" onclick="rojo()">
-				<input type="button" value="Hacer Gris" onclick="gris()">
-				<input type="button" value="Imagen por defecto" onclick="reset()">
-			</html>
+			<div class="container">
+
+				<h3>Registro de candidatos</h3>
+				<p style="color:red; font-size:12px;">Maximo registro de 10 candidatos por orden</p>
+
+				<!--Pendiente que registre y suba la foto-->
 
 
-			<script src="~/js/NWKBZdV.js"></script>
 
-			<!--Pendiente que registre y suba la foto-->
+				<label asp-for="Candidato.OrdenId">Seleccione el puesto al que el can didato se postulo</label>
+				<select asp-for="Candidato.OrdenId" asp-items="@(new SelectList(Model.OrdenList , "Id" , "PuestoSolicitado"))">
+					<option>Selecciona un puesto </option>
 
-			<script src="http://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js"></script>
-			<canvas id="c1">
-			</canvas>
+				</select>
+				<br>
+				<br>
+				<label asp-for="Candidato.Nombre ">Nombre:</label>
+				<input type="text" asp-for="Candidato.Nombre" placeholder="Nombre">
+				<br>
+				<br>
+				<label asp-for="Candidato.Apellido">Apellido:</label>
+				<input type="text" asp-for="Candidato.Apellido" placeholder="Apellido">
+				<!--Aqui ira el telefono del candidato , pendiente -->
+
+
+			</div>
 			<br>
 			<br>
-			<p style="font-size: 14px;">Cargar Imagen</p>
-			<input type="file" id="f1" asp-for="Candidato.PhotoCandidato" multiple="false" accept="image/*" onchange="cargar()">
-		</div>
 
-		<div class="container">
-			<label asp-for="Candidato.OrdenId">Seleccione el puesto al que el can didato se postulo</label>
-			<select asp-for="Candidato.OrdenId" asp-items="@(new SelectList(Model.OrdenList , "Id" , "PuestoSolicitado"))">
-				<option>Selecciona un puesto </option>
+			<div class="container">
+				<label asp-for="Candidato.Direccion">Direccion:</label>
+				<input type="text" asp-for="Candidato.Direccion" placeholder="Direccion">
+				<label asp-for="Candidato.FechaNac">Fecha de Nacimiento:</label>
+				<input type="date" asp-for="Candidato.FechaNac" placeholder="Fecha Nacimiento">
+				<select asp-for="Candidato.Genero">
+					<option value="select" selected>Selecciona un genero </option>
+					<option value="true">Masculino </option>
+					<option value="false">Femenino</option>
+				</select>
+			</div>
+			<br>
+			<br>
+			<div class="container">
+				<label asp-for="Candidato.Curp">CURP:</label>
+				<input type="text" asp-for="Candidato.Curp" placeholder="CURP">
+
+				<label asp-for="Candidato.EstadoCivil">Estado Civil:</label>
+				<select asp-for="Candidato.EstadoCivil">
+					<option value="selectCiv" selected>Selecciona un estado civil </option>
+					<option value="Casado">Casado </option>
+					<option value="Soltero">Soltero</option>
+					<option value="Union libre">Union Libre</option>
+					<option value="Viudo">Viudo</option>
+					<option value="Divorciado">Divorciado</option>
+				</select>
+
+			</div>
+			<label asp-for="Candidato.NacionalidadId">Seleccione la nacionalidad</label>
+			<select asp-for="Candidato.NacionalidadId" asp-items="@(new SelectList(Model.NacionalidadList , "Id" , "Nombre"))">
+				<option>Selecciona la nacionalidad </option>
 
 			</select>
 			<br>
+			<label asp-for="Candidato.CreatedAT">Fecha de Creación:</label>
+			<input type="text" asp-for="Candidato.CreatedAT" style="width : 300px; heigth : 1px" placeholder="Fecha">
 			<br>
-			<label asp-for="Candidato.Nombre ">Nombre:</label>
-			<input type="text" asp-for="Candidato.Nombre" placeholder="Nombre">
 			<br>
 			<br>
-			<label asp-for="Candidato.Apellido">Apellido:</label>
-			<input type="text" asp-for="Candidato.Apellido" placeholder="Apellido">
-			<!--Aqui ira el telefono del candidato , pendiente -->
+			<br>
 
+			<br>
+			<br>
 
-		</div>
-		<br>
-		<br>
+			<div><button type="submit" value="" class="btn btn-outline-primary ">Registrar</button></div>
+			<br>
+			<br>
 
-		<div class="container">
-			<label asp-for="Candidato.Direccion">Direccion:</label>
-			<input type="text" asp-for="Candidato.Direccion" placeholder="Direccion">
-			<label asp-for="Candidato.FechaNac">Fecha de Nacimiento:</label>
-			<input type="date" asp-for="Candidato.FechaNac" placeholder="Fecha Nacimiento">
-			<select asp-for="Candidato.Genero">
-				<option value="select" selected>Selecciona un genero </option>
-				<option value="true">Masculino </option>
-				<option value="false">Femenino</option>
-			</select>
-		</div>
-		<br>
-		<br>
-		<div class="container">
-			<label asp-for="Candidato.Curp">CURP:</label>
-			<input type="text" asp-for="Candidato.Curp" placeholder="CURP">
+			<div class=""><a asp-page="/Proyect/PageReferencia/Create" class="btn btn-dark">Siguiente</a></div>
 
-			<label asp-for="Candidato.EstadoCivil">Estado Civil:</label>
-			<select asp-for="Candidato.EstadoCivil">
-				<option value="selectCiv" selected>Selecciona un estado civil </option>
-				<option value="Casado">Casado </option>
-				<option value="Soltero">Soltero</option>
-				<option value="Union libre">Union Libre</option>
-				<option value="Viudo">Viudo</option>
-				<option value="Divorciado">Divorciado</option>
-			</select>
+			<div class=""><a asp-page="./IndexCandidato" class="btn btn-primary">Cancelar</a></div>
 
-		</div>
-		<br>
-		<br>
-		<p style="color:black; font-size:12px;">Documentacion: Seleccione con los que cuenta el candidato</p>
-		<div class="container">
-			<label for="VisLab">Visa Laboral</label>
-			<input type="checkbox" id="Doc1" name="Doc1" value="Visa Laboral">
-			<label for="Licen">Licencia</label>
-			<input type="checkbox" id="Doc2" name="Doc2" value="Licencia de Manejo">
-			<label for="CartMil">Cartilla Militar</label>
-			<input type="checkbox" id="Doc3" name="Doc3" value="Cartilla Militar">
-			<label for="Pasap">Pasaporte</label>
-			<input type="checkbox" id="Doc4" name="Doc4" value="Pasaporte">
-			<label for="CompDom">Comprobante de Domicilio</label>
-			<input type="checkbox" id="Doc5" name="Doc5" value="Comprobante de domicilio">
-			<label for="INEE">INE</label>
-			<input type="checkbox" id="Doc6" name="Doc6" value="INE">
-			<label for="AntPen">Antecedentes no penales</label>
-			<input type="checkbox" id="Doc7" name="Doc7" value="Antecedentes no Penales">
-		</div>
-
-		<br>
-		<br>
-
-		<div><button type="submit" value="" class="btn btn-outline-primary ">Registrar</button></div>
-		<br>
-		<br>
-		<div>
-			<button asp-page="/Proyect/RegitroReferencia">Siguiente</button>
-		</div>
-
-
-	</form>
+		</form>
 
 
 
 
-</body>
+	</body>
 </html>
 
 

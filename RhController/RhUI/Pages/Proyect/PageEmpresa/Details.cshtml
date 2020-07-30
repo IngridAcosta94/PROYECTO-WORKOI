@@ -2,57 +2,60 @@
 @model RhUI.Pages.Proyect.PageEmpresa.DetailsModel
 @{
 }
-<h2>Detalles de la Empresa</h2>
 
-<div>
-	<hr />
-	<dl class="row">
-		<dt class="col-sm-3">
-			Id:
-		</dt>
-		<dd class="col-sm-9">
-			@Html.DisplayFor(model => model.Empresa.Id)
-		</dd>
-		<dt class="col-sm-3">
-			Nombre
-		</dt>
-		<dd class="col-sm-9">
-			@Html.DisplayFor(model => model.Empresa.Nombre)
-		</dd>
-		<dt class="col-sm-3">
-			Telefono:
-		</dt>
-		<dd class="col-sm-9">
-			@Html.DisplayFor(model => model.Empresa.Telefono)
-		</dd>
-		<dt class="col-sm-3">
-			Fecha de creación:
-		</dt>
-		<dd class="col-sm-9">
-			@Html.DisplayNameFor(model => model.Empresa.CreatedAT)
-		</dd>
-		<dt class="col-sm-3">
-			Correo:
-		</dt>
-		<dd class="col-sm-9">
-			@Html.DisplayNameFor(model => model.Empresa.Correo)
-		</dd>
-		<dt class="col-sm-3">
-			Dirección:
-		</dt>
-		<dd class="col-sm-9">
-			@Html.DisplayNameFor(model => model.Empresa.Direccion)
-		</dd>
-		<dt class="col-sm-3">
-			Perfil:
-		</dt>
-		<dd class="col-sm-9">
-			@Html.DisplayNameFor(model => model.Empresa.Perfil.Nombre)
-		</dd>
-	</dl>
-</div>
-<div>
-	<a class="btn btn-success" asp-page="./Edit" asp-route-id="@Model.Empresa.Id">Editar</a> |
-	<a class="btn btn-secondary" asp-page="./IndexEmpresa">Regresar</a>
-</div>
+	<body style="margin-right:50px; background-color:white; margin-left:50px; margin-top:25px; border:double; border-color:darkmagenta;">
+		<h2>Detalles de la Empresa</h2>
 
+		<div>
+			<hr />
+			<dl class="row">
+				<dt class="col-sm-3">
+					Id:
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.Empresa.Id)
+				</dd>
+				<dt class="col-sm-3">
+					Nombre
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.Empresa.Nombre)
+				</dd>
+				<dt class="col-sm-3">
+					Telefono:
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.Empresa.Telefono)
+				</dd>
+				<dt class="col-sm-3">
+					Fecha de creación:
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.Empresa.CreatedAT)
+				</dd>
+				<dt class="col-sm-3">
+					Correo:
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.Empresa.Correo)
+				</dd>
+				<dt class="col-sm-3">
+					Dirección:
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.Empresa.Direccion)
+				</dd>
+				<dt class="col-sm-3">
+					Perfil:
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.Empresa.Perfil.Nombre)
+				</dd>
+			</dl>
+		</div>
+		<div>
+			<a class="btn btn-success" asp-page="./Edit" asp-route-id="@Model.Empresa.Id">Editar</a> |
+			<a class="btn btn-secondary" asp-page="./IndexEmpresa">Regresar</a>
+		</div>
+
+		</body>

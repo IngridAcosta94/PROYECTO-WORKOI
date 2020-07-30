@@ -11,8 +11,10 @@ namespace RhController.Models
 	{
 		
 		[Display(Name = "Nombre")]
+		[Required(ErrorMessage = "EL Nombre es requerido.")]
 		public string Nombre { get; set; }
 		[Display(Name = "Telefono1")]
+		[Required(ErrorMessage = "Al menos un telefono es requerido.")]
 		public string Telefono1 { get; set; }
 		[Display(Name = "Telefono2")]
 		public string Telefono2 { get; set; }
@@ -24,7 +26,7 @@ namespace RhController.Models
 		public string RazonSocial { get; set; }
 		[Display(Name = "NombreInformante")]
 		public string NombreInformante { get; set; }
-		[Display(Name = "PuestoInformacion")]
+		[Display(Name = "PuestoInformante")]
 		public string PuestoInformante { get; set; }
 		[Display(Name = "NombreJefe")]
 		public string NombreJefe { get; set; }

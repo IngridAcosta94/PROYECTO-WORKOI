@@ -27,7 +27,7 @@ namespace RhUI.Pages.Proyect.PageOrden
             this.EmpresaList = Emprepository.GetAll();
         }
 
-        public void OnGet(int id)
+        public void OnGet()
         {
 
         }
@@ -39,12 +39,10 @@ namespace RhUI.Pages.Proyect.PageOrden
 
             var id = repository.Insert(Orden);
 
-            return RedirectToPage("/Proyect/CrearOrden");
+            return RedirectToPage("./Create");
 
         }
 
-        public void OnGet()
-        {
-        }
+       
     }
 }

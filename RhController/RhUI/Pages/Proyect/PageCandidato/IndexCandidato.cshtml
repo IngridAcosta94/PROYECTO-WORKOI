@@ -1,0 +1,114 @@
+﻿@page
+@model RhUI.Pages.Proyect.PageCandidato.IndexCandidatoModel
+@{
+}
+<header>
+	<script src="~/js/sorttable.js"></script>
+</header>
+
+<body style="margin-right:50px; background-color:white; margin-left:50px; margin-top:25px; border:double; border-color:darkmagenta;">
+	<h2>Administración de Empresas</h2>
+
+	<form>
+		<p>
+			Busqueda por Orden: <select asp-for="Ordeness" asp-items="Model.BuscarCandidato">
+				<option value=""> Todos </option>
+			</select>
+			Busqueda por Nombre: <input type="text" asp-for="SearchString" />
+			<input class="btn btn-outline-primary btn-sm" type="submit" value="Buscar" />
+
+
+		</p>
+	</form>
+
+	<p>
+		<a class="btn btn-primary" asp-page="Create">Registrar Candidato</a>
+	</p>
+	<table class="sortable table">
+		<thead>
+			<tr>
+				<th>
+					Id Candidato
+				</th>
+				<th>
+					Nombre
+				</th>
+				<th>
+					Apellido
+				</th>
+				<th>
+					Dirección
+				</th>
+				<th>
+					Fecha de nacimiento
+
+				</th>
+				<th>
+					Genero
+				</th>
+				<th>
+					CURP
+				</th>
+				<th>
+					Nacionalidad
+				</th>
+				<th>
+					Estado Civil
+				</th>
+				<th>
+					Puesto Solicitado
+				</th>
+				<th>
+					Fecha de registro
+				</th>
+				<th>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model.Candidato)
+			{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.Id)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Nombre)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Apellido)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Direccion)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.FechaNac)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Genero)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Curp)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Nacionalidad.Id)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.EstadoCivil)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Orden.PuestoSolicitado)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.CreatedAT)
+				</td>
+				<td>
+					<a class="btn btn-success btn-sm" asp-page="./Edit" asp-route-id="@item.Id">Editar</a> |
+					<a class="btn btn-info btn-sm" asp-page="./Details" asp-route-id="@item.Id">Detalles</a> |
+					<a class="btn btn-danger btn-sm" asp-page="./Delete" asp-route-id="@item.Id">Eliminar</a>
+				</td>
+			</tr>
+			}
+		</tbody>
+	</table>
+</body>

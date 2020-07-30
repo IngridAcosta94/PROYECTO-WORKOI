@@ -9,126 +9,67 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-
+using RhController.Services;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using RhController.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
 
 namespace RhUI.Pages
 {
     public class LoginModel : PageModel
     {      /// </summary>  
-        [BindProperty]
-        public LoginViewModels LoginModels { get; set; }
+        private readonly AppDBContext _context;
 
-        private readonly PROYECTOWORKContext databaseManager;
-
-        public LoginModel(PROYECTOWORKContext databaseManagerContext)
+        public LoginModel(AppDBContext context)
         {
-            try
-            {
-                // Settings.  
-                this.databaseManager = databaseManagerContext;
-            }
-            catch (Exception ex)
-            {
-                // Info  
-                Console.Write(ex);
-            }
+            _context = context;
         }
 
 
 
+        [BindProperty(SupportsGet = true)]
+        public string SearchString { get; set; }
+        // Requires using Microsoft.AspNetCore.Mvc.Rendering;
+        public SelectList BuscarCuenta { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public string Cuentass { get; set; }
 
 
+        public Cuenta Cuenta { get; set; }
 
-
-
-
-
-
-        public IActionResult OnGet()
+        public void OnGet()
         {
-            try
+            Cuenta = new Cuenta();
+        }
+
+        public IActionResult OnPost()
+        {
+            var _cuenta = login(Cuenta.Usuario, Cuenta.Contraseña);
+            if (_cuenta == null)
             {
-                // Verification.  
-                if (this.User.Identity.IsAuthenticated)
+                return RedirectToPage("./Error");
+            }
+            else
+            {
+                HttpContext.Session.SetString("Nombre", _cuenta.Usuario);
+                return RedirectToPage("Index", _cuenta.Contraseña);
+            }
+        }
+         private Cuenta login(string usuario, string contraseña)
+        {
+            var cuentas = _context.Cuentas.SingleOrDefault(a => a.Usuario.Equals(usuario));
+            if (cuentas != null)
+            {
+                if (BCrypt.Net.BCrypt.Verify(contraseña, cuentas.Contraseña))
                 {
-                    // Home Page.  
-                    return this.RedirectToPage("/Proyect/Index");
+                    
+                    return cuentas;
                 }
             }
-            catch (Exception ex)
-            {
-                // Info  
-                Console.Write(ex);
-            }
-
-            // Info.  
-            return this.Page();
+            return null;
         }
-
-        
-        public async Task<IActionResult> OnPostLogIn()
-        {
-            try
-            {
-                // Verification.  
-                if (ModelState.IsValid)
-                {
-                    // Initialization.  
-                    var loginInfo = await this.databaseManager.LoginByUsernamePasswordAsync(this.LoginModels.Username, this.LoginModels.Password);
-
-                    // Verification.  
-                    if (loginInfo != null && loginInfo.Count() > 0)
-                    {
-                        // Initialization.  
-                        var logindetails = loginInfo.First();
-
-                        // Login In.  
-                        await this.SignInUser(logindetails.username, false);
-
-                        // Info.  
-                        return this.RedirectToPage("/Home/Index");
-                    }
-                    else
-                    {
-                        // Setting.  
-                        ModelState.AddModelError(string.Empty, "Invalid username or password.");
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                // Info  
-                Console.Write(ex);
-            }
-
-            // Info.  
-            return this.Page();
-        }
-
-
-        private async Task SignInUser(string username, bool isPersistent)
-        {
-            // Initialization.  
-            var claims = new List<Claim>();
-
-            try
-            {
-                // Setting  
-                claims.Add(new Claim(ClaimTypes.Name, username));
-                var claimIdenties = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-                var claimPrincipal = new ClaimsPrincipal(claimIdenties);
-                var authenticationManager = Request.HttpContext;
-
-                // Sign In.  
-                await authenticationManager.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, claimPrincipal, new AuthenticationProperties() { IsPersistent = isPersistent });
-            }
-            catch (Exception ex)
-            {
-                // Info  
-                throw ex;
-            }
-        }
-
 
     }
 }

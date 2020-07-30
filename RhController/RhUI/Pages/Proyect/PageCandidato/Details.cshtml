@@ -2,3 +2,90 @@
 @model RhUI.Pages.Proyect.PageCandidato.DetailsModel
 @{
 }
+	<body style="margin-right:50px; background-color:white; margin-left:50px; margin-top:25px; border:double; border-color:darkmagenta;">
+		<h2>Detalles del Candidato</h2>
+
+		<div>
+			<hr />
+			<dl class="row">
+				<dt class="col-sm-3">
+					Id:
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.Candidato.Id)
+				</dd>
+				<dt class="col-sm-3">
+					Nombre:
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.Candidato.Nombre)
+				</dd>
+				<dt class="col-sm-3">
+					Apellido:
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.Candidato.Apellido)
+				</dd>
+				<dt class="col-sm-3">
+					Dirección:
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.Candidato.Direccion)
+				</dd>
+				<dt class="col-sm-3">
+					Fecha de nacimiento:
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.Candidato.FechaNac)
+				</dd>
+				<dt class="col-sm-3">
+					Genero:
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.Candidato.Genero)
+				</dd>
+				<dt class="col-sm-3">
+					CURP:
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.Candidato.Curp)
+				</dd>
+				<dt class="col-sm-3">
+					Nacionalidad:
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.Candidato.Nacionalidad.Nombre)
+				</dd>
+				<dt class="col-sm-3">
+					Estado civil:
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.Candidato.EstadoCivil)
+				</dd>
+				<dt class="col-sm-3">
+					Orden a la que pertenece:
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.Candidato.Orden.Id)
+				</dd>
+				<dt class="col-sm-3">
+					Puesto que solicita:
+				</dt>
+				<dd class="col-sm-9">
+					@Html.DisplayFor(model => model.Candidato.Orden.PuestoSolicitado)
+				</dd>
+				<dt class="col-sm-3">
+					Fecha de creación:
+				</dt>
+
+				<dt class="col-sm-9">
+					@Html.DisplayFor(model => model.Candidato.CreatedAT)
+				</dt>
+
+			</dl>
+		</div>
+		<div>
+			<a class="btn btn-success" asp-page="./Edit" asp-route-id="@Model.Candidato.Id">Editar</a> |
+			<a class="btn btn-secondary" asp-page="./IndexCandidato">Regresar</a>
+		</div>
+	</body>

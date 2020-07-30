@@ -11,7 +11,8 @@ namespace RhController.Models
 	{
 
 		// se retiro el ID y el estatus por que ahora hereda de BaseEntity
-
+		[Display(Name = "PuestoSolicitado")]
+		[Required(ErrorMessage = "El puesto es requerido.")]
 		public string  PuestoSolicitado { get; set; }
 
 		public ICollection<Candidato> Candidatos { get; set; }
