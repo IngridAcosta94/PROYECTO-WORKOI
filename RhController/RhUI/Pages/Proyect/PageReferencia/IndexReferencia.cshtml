@@ -6,15 +6,15 @@
 	<script src="~/js/sorttable.js"></script>
 </header>
 
-<body style="margin-right:50px; background-color:white; margin-left:50px; margin-top:25px; border:double; border-color:darkmagenta;">
+<body style="margin-right:50px; background-color:white; margin-left:30px; margin-top:25px; border:double; border-color:darkmagenta;">
 	<h2>Administración de Referencias</h2>
 
 	<form>
 		<p>
-			Busqueda por Candidato: <select asp-for="Referenciass" asp-items="Model.BuscarReferencia">
+			Busqueda por Candidato: <select asp-for="Candidatoss" asp-items="Model.BuscarReferencia">
 				<option value=""> Todos </option>
 			</select>
-			Busqueda por Nombre: <input type="text" asp-for="SearchString" />
+			Busqueda por Nombre Referencia: <input type="text" asp-for="SearchString" />
 			<input class="btn btn-outline-primary btn-sm" type="submit" value="Buscar" />
 
 
@@ -43,9 +43,7 @@
 					Telefono 2
 
 				</th>
-				<th>
-					Telefono 3
-				</th>
+
 				<th>
 					Razon social
 				</th>
@@ -91,71 +89,71 @@
 		<tbody>
 			@foreach (var item in Model.Referencia)
 			{
-			<tr>
-				<td>
-					@Html.DisplayFor(modelItem => item.Id)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.Candidato.Nombre)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.Nombre)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.Telefono1)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.Telefono2)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.Telefono3)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.RazonSocial)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.Direccion)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.NombreJefe)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.PuestoJefe)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.NombreInformante)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.PuestoInformante)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.Puesto.Nombre)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.SueldoInicial)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.SueldoFinal)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.FechaInicLab)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.FechaFinLab)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.MotivoSeparacion)
-				</td>
-				<td>
-					@Html.DisplayFor(modelItem => item.Comentarios)
-				</td>
-				<td>
-					<a class="btn btn-success btn-sm" asp-page="./Edit" asp-route-id="@item.Id">Editar</a> |
-					<a class="btn btn-info btn-sm" asp-page="./Details" asp-route-id="@item.Id">Detalles</a> |
-					<a class="btn btn-danger btn-sm" asp-page="./Delete" asp-route-id="@item.Id">Eliminar</a>
-				</td>
-			</tr>
+				<tr>
+					<td>
+						@Html.DisplayFor(modelItem => item.Id)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Candidato.Nombre)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Nombre)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Telefono1)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Telefono2)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.RazonSocial)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Direccion)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.NombreJefe)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.PuestoJefe)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.NombreInformante)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.PuestoInformante)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Puesto.Nombre)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.SueldoInicial)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.SueldoFinal)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.FechaInicLab)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.FechaFinLab)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.MotivoSeparacion)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.Comentarios)
+					</td>
+					<td>
+						<a class="btn btn-success btn-sm" asp-page="./Edit" asp-route-id="@item.Id">Editar</a>
+						<a class="btn btn-info btn-sm" asp-page="./Details" asp-route-id="@item.Id">Detalles</a>
+						<a class="btn btn-danger btn-sm" asp-page="./Delete" asp-route-id="@item.Id">Eliminar</a>
+					</td>
+				</tr>
 			}
 		</tbody>
 	</table>
+	<div><a class="btn btn-secondary" asp-page="/Proyect/PageOrden/IndexOrden">Regresar</a></div>
+
+
 </body>

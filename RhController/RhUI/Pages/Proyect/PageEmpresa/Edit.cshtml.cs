@@ -31,14 +31,14 @@ namespace RhUI.Pages.Proyect.PageEmpresa
             }
 
             Empresa = await _context.Empresas
-                .Include(e => e.Perfil).FirstOrDefaultAsync(m => m.Id == id);
+                .Include(e => e.Cuenta).FirstOrDefaultAsync(m => m.Id == id);
 
             if (Empresa == null)
             {
                 return NotFound();
             }
 
-            ViewData["Id"] = new SelectList(_context.Perfiles, "Id", "Nombre");
+            ViewData["Id"] = new SelectList(_context.Cuentas, "Id", "Nombre");
             return Page();
         }
 

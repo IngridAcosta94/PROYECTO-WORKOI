@@ -20,6 +20,7 @@ namespace RhController.Models
 		public string Telefono2 { get; set; }
 		[Display(Name = "Telefono3")]
 		public string Telefono3 { get; set; }
+
 		[Display(Name = "Direccion")]
 		public string Direccion { get; set; }
 		[Display(Name = "RazonSocial")]

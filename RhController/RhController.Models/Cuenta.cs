@@ -11,14 +11,11 @@ namespace RhController.Models
 		
 		public string Nombre { get; set; }
 		public string Usuario { get; set; }
-		public string Contraseña { get; set; }
+		public string Contrasenia { get; set; }
         public string Correo { get; set; }
 
-		[Display(Name = "Perfil")]
-		[Required(ErrorMessage = "La nacionalidad es requerido")]
-		[ForeignKey("Perfil")]
-		public int PerfilId { get; set; }
-		public Perfil Perfil { get; set; }
+		public Empresa Empresa { get; set; }
+
 
 
 

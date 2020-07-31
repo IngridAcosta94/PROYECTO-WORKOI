@@ -52,22 +52,17 @@
 				</div>
 				<br>
 				<div class="form-group">
-					<label asp-for="Empresa.PerfilId">Seleccione el perfil de la empresa</label>
-					<select asp-for="Empresa.PerfilId" asp-items="@(new SelectList(Model.PerfilList, "Id" , "Nombre"))">
+					<label asp-for="Empresa.CuentaId">Seleccione el perfil de la empresa</label>
+					<select asp-for="Empresa.CuentaId" asp-items="@(new SelectList(Model.CuentaList, "Id" , "Nombre"))">
 						<option>Selecciona un perfil </option>
 
 					</select>
-					<span asp-validation-for="Empresa.Perfil.Id" class="text-danger"></span>
+					<span asp-validation-for="Empresa.Cuenta.Id" class="text-danger"></span>
 				</div>
-
-
-
 			</div>
-
-				<br>
 				<br>
 				<div><button type="submit" value="" class="btn btn-success">Registrar</button></div>
-
+				<br />
 				<div class=""><a asp-page="./IndexEmpresa" class="btn btn-primary">Cancelar</a></div>
 
 </form>

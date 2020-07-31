@@ -46,7 +46,9 @@
 			<div class="container">
 				<label asp-for="Candidato.Direccion">Direccion:</label>
 				<input type="text" asp-for="Candidato.Direccion" placeholder="Direccion">
+				<br>
 				<label asp-for="Candidato.FechaNac">Fecha de Nacimiento:</label>
+				<p>Formato tipo : 20-07-2020</p>
 				<input type="date" asp-for="Candidato.FechaNac" placeholder="Fecha Nacimiento">
 				<select asp-for="Candidato.Genero">
 					<option value="select" selected>Selecciona un genero </option>
@@ -80,20 +82,16 @@
 			<label asp-for="Candidato.CreatedAT">Fecha de Creación:</label>
 			<input type="text" asp-for="Candidato.CreatedAT" style="width : 300px; heigth : 1px" placeholder="Fecha">
 			<br>
-			<br>
-			<br>
-			<br>
+			<div><button type="submit" value="" class="btn btn-primary ">Registrar</button></div>
+			<br />
+			<div class=""><a asp-page="/Proyect/PageReferencia/Create" class="btn btn-secondary">Siguiente</a></div>
+			<br />
+			<div class=""><a asp-page="./IndexCandidato" class="btn btn-danger">Cancelar</a></div>
+			<br />
+			<div>
+			<btn><a class="btn-link" asp-page="/Proyect/PageOrden/IndexOrden">Volver Ordenes</a></btn>
+			</div>
 
-			<br>
-			<br>
-
-			<div><button type="submit" value="" class="btn btn-outline-primary ">Registrar</button></div>
-			<br>
-			<br>
-
-			<div class=""><a asp-page="/Proyect/PageReferencia/Create" class="btn btn-dark">Siguiente</a></div>
-
-			<div class=""><a asp-page="./IndexCandidato" class="btn btn-primary">Cancelar</a></div>
 
 		</form>
 

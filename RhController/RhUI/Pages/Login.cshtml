@@ -9,48 +9,28 @@
 				<div class="user_options-forms" id="user_options-forms">
 					<div class="user_forms-login">
 						<h2 class="forms_title">Iniciar sesión</h2>
-						<form class="forms_form">
+						<form method="post">
 							<fieldset class="forms_fieldset">
 								<div class="forms_field">
-									<input type="text" class="form-control" asp-for="@Model.Cuenta.Usuario" placeholder="Usuario" required="required">
+									<input type="text" class="form-control" role="textbox" asp-for="@Model.Cuenta.Correo" placeholder="Correo@correo.com" required="required"  >
 								</div>
 								<div class="forms_field">
-									 <input type="password" class="form-control" asp-for="@Model.Cuenta.Contraseña" placeholder="Contraseña" required="required">
+									<input type="password" class="form-control" role="textbox" asp-for="@Model.Cuenta.Contrasenia" placeholder="Contraseña" required="required">
 								</div>
 							</fieldset>
 							<div class="forms_buttons">
-								<button id="btnSubmit" type="button" class="forms_buttons-forgot">Olvidaste tu contraseña?</button>
-								<input type="submit" value="Iniciar sesión" class="forms_buttons-action login-btn">
+								
+								<button type="submit" class="btn btn-success">Iniciar Sesion</button>
 
 							</div>
-						</form>
-					</div>
-					<div class="user_forms-signup">
-						<h2 class="forms_title">Sign Up</h2>
-						<form class="forms_form">
-							<fieldset class="forms_fieldset">
-								<div class="forms_field">
-									<input type="text" placeholder="Full Name" class="forms_field-input" required />
-								</div>
-								<div class="forms_field">
-									<input type="email" placeholder="Email" class="forms_field-input" required />
-								</div>
-								<div class="forms_field">
-									<input type="password" placeholder="Password" class="forms_field-input" required />
-								</div>
-							</fieldset>
-							<div class="forms_buttons">
-								<input type="submit" value="Sign up" class="forms_buttons-action">
-							</div>
-							<link href="~/css/Login.css" rel="stylesheet" />
-							<script src="~/js/Login.js"></script>
 						</form>
 					</div>
 				</div>
 			</div>
 		</section>
 
-
+		<link href="~/css/Login.css" rel="stylesheet" />
+		<script src="~/js/Login.js"></script>
 	</body>
 
 }

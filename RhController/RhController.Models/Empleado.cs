@@ -22,9 +22,9 @@ namespace RhController.Models
 		[Display(Name = "PerfilId")]
 		[Required(ErrorMessage = "El perfil es requerido.")]
 		[ForeignKey("Perfil")]
-		public int PerfilId { get; set; }
+		public int CuentaId { get; set; }
 		[Display(Name = "Id")]
-		public Perfil Perfil { get; set; }
+		public Cuenta Cuenta { get; set; }
 
 
 

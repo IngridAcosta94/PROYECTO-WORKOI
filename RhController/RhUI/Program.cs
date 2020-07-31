@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -14,6 +15,9 @@ namespace RhUI
 		public static void Main(string[] args)
 		{
 			CreateHostBuilder(args).Build().Run();
+			var passwordHasher = new PasswordHasher<string>();
+			Console.WriteLine(passwordHasher.HashPassword(null, "ingrid123"));
+			Console.ReadLine();
 		}
 
 		public static IHostBuilder CreateHostBuilder(string[] args) =>

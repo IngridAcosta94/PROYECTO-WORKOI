@@ -29,7 +29,7 @@ namespace RhUI.Pages.Proyect.PageReferencia
             }
 
             ReferenciaLab = await _context.Referencias
-                .Include(e => e.Id).FirstOrDefaultAsync(m => m.Id == id);
+                .Include(e => e.Candidato).FirstOrDefaultAsync(m => m.Id == id);
 
             if (ReferenciaLab == null)
             {
@@ -37,8 +37,6 @@ namespace RhUI.Pages.Proyect.PageReferencia
             }
             return Page();
         }
-        public void OnGet()
-        {
-        }
+        
     }
 }

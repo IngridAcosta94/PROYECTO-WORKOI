@@ -18,14 +18,14 @@ namespace RhUI.Pages.Proyect.PageEmpresa
         public IWebHostEnvironment HostEnvironment { get; }
 
         private readonly IProyecto<Empresa> repository;
-        private readonly IProyecto<Perfil> Perfilrepository;
+        private readonly IProyecto<Cuenta> Cuentarepository;
 
-        public IEnumerable<Perfil> PerfilList { get; set; }
-        public CreateModel(IProyecto<Empresa> repository, IProyecto<Perfil> Perfilrepository, IWebHostEnvironment hostEnvironment)
+        public IEnumerable<Cuenta> CuentaList { get; set; }
+        public CreateModel(IProyecto<Empresa> repository, IProyecto<Cuenta> Cuentarepository, IWebHostEnvironment hostEnvironment)
         {
             this.repository = repository;
             HostEnvironment = hostEnvironment;
-            this.PerfilList = Perfilrepository.GetAll();
+            this.CuentaList = Cuentarepository.GetAll();
 
         }
 

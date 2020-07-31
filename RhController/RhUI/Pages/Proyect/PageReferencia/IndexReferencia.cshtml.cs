@@ -45,13 +45,17 @@ namespace RhUI.Pages.Proyect.PageReferencia
             var Ref = from m in _context.Referencias
                        select m;
 
-           
+
+
+            if (!string.IsNullOrEmpty(Candidatoss))
+            {
+                Ref = Ref.Where(x => x.Candidato.Nombre == Candidatoss);
+            }
 
             if (!string.IsNullOrEmpty(SearchString))
             {
-                Ref = Ref.Where(s => s.Candidato.Nombre.Contains(SearchString));
+                Ref = Ref.Where(s => s.Nombre.Contains(SearchString));
             }
-
 
 
 

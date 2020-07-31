@@ -49,7 +49,7 @@ namespace RhUI.Pages.Proyect.PageEmpresa
             }
 
             BuscarEmpresa = new SelectList(await genreQuery.Distinct().ToListAsync());
-            Empresa = await Emp.Include(l => l.Perfil).ToListAsync();
+            Empresa = await Emp.Include(l => l.Cuenta).ToListAsync();
         }
     }
 }

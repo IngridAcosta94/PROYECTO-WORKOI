@@ -30,11 +30,7 @@ namespace RhUI.Pages.Proyect.PageReferencia
             HostEnvironment = hostEnvironment;
         }
 
-        public void OnGet()
-        {
-
-        }
-
+      
         public IActionResult OnPost()
         {
             if (!ModelState.IsValid)

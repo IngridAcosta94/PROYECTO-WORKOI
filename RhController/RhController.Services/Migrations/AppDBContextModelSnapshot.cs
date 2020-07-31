@@ -27,6 +27,7 @@ namespace RhController.Services.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Apellido")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Correo")
@@ -36,12 +37,15 @@ namespace RhController.Services.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Curp")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Direccion")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EstadoCivil")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("FechaNac")
@@ -54,13 +58,11 @@ namespace RhController.Services.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Nombre")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("OrdenId")
                         .HasColumnType("int");
-
-                    b.Property<string>("PhotoCandidato")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
@@ -84,7 +86,7 @@ namespace RhController.Services.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Contraseña")
+                    b.Property<string>("Contrasenia")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Correo")
@@ -95,9 +97,6 @@ namespace RhController.Services.Migrations
 
                     b.Property<string>("Nombre")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("PerfilId")
-                        .HasColumnType("int");
 
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
@@ -110,8 +109,6 @@ namespace RhController.Services.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PerfilId");
-
                     b.ToTable("Cuentas");
                 });
 
@@ -122,7 +119,7 @@ namespace RhController.Services.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("CandidatoId")
+                    b.Property<int>("CandidatoId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedAT")
@@ -152,6 +149,7 @@ namespace RhController.Services.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Apellido")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Correo")
@@ -160,11 +158,12 @@ namespace RhController.Services.Migrations
                     b.Property<DateTime>("CreatedAT")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Nombre")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("PerfilId")
+                    b.Property<int>("CuentaId")
                         .HasColumnType("int");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
@@ -174,7 +173,7 @@ namespace RhController.Services.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PerfilId");
+                    b.HasIndex("CuentaId");
 
                     b.ToTable("Empleados");
                 });
@@ -192,19 +191,22 @@ namespace RhController.Services.Migrations
                     b.Property<DateTime>("CreatedAT")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("CuentaId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Direccion")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nombre")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("PerfilId")
-                        .HasColumnType("int");
 
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
 
                     b.Property<string>("Telefono")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("UpdatedAT")
@@ -212,7 +214,8 @@ namespace RhController.Services.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PerfilId");
+                    b.HasIndex("CuentaId")
+                        .IsUnique();
 
                     b.ToTable("Empresas");
                 });
@@ -255,6 +258,7 @@ namespace RhController.Services.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("PuestoSolicitado")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Status")
@@ -268,30 +272,6 @@ namespace RhController.Services.Migrations
                     b.HasIndex("EmpresaId");
 
                     b.ToTable("Ordenes");
-                });
-
-            modelBuilder.Entity("RhController.Models.Perfil", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreatedAT")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Nombre")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("Status")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("UpdatedAT")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Perfiles");
                 });
 
             modelBuilder.Entity("RhController.Models.Puesto", b =>
@@ -347,6 +327,7 @@ namespace RhController.Services.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nombre")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NombreInformante")
@@ -377,6 +358,7 @@ namespace RhController.Services.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Telefono1")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Telefono2")
@@ -412,36 +394,29 @@ namespace RhController.Services.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("RhController.Models.Cuenta", b =>
+            modelBuilder.Entity("RhController.Models.Documentacion", b =>
                 {
-                    b.HasOne("RhController.Models.Perfil", "Perfil")
+                    b.HasOne("RhController.Models.Candidato", "Candidato")
                         .WithMany()
-                        .HasForeignKey("PerfilId")
+                        .HasForeignKey("CandidatoId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("RhController.Models.Documentacion", b =>
-                {
-                    b.HasOne("RhController.Models.Candidato", null)
-                        .WithMany("Documentos")
-                        .HasForeignKey("CandidatoId");
-                });
-
             modelBuilder.Entity("RhController.Models.Empleado", b =>
                 {
-                    b.HasOne("RhController.Models.Perfil", "Perfil")
+                    b.HasOne("RhController.Models.Cuenta", "Cuenta")
                         .WithMany()
-                        .HasForeignKey("PerfilId")
+                        .HasForeignKey("CuentaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
             modelBuilder.Entity("RhController.Models.Empresa", b =>
                 {
-                    b.HasOne("RhController.Models.Perfil", "Perfil")
-                        .WithMany()
-                        .HasForeignKey("PerfilId")
+                    b.HasOne("RhController.Models.Cuenta", "Cuenta")
+                        .WithOne("Empresa")
+                        .HasForeignKey("RhController.Models.Empresa", "CuentaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

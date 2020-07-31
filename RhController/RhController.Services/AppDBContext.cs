@@ -24,7 +24,6 @@ namespace RhController.Services
 		public DbSet<Nacionalidad> Nacionalidades { get; set; }
 		public DbSet<Documentacion> Documentaciones { get; set; }
 		public DbSet<Cuenta> Cuentas { get; set; }
-		public DbSet<Perfil> Perfiles { get; set; }
 		public DbSet<Puesto> Puestos { get; set; }
 
 

@@ -14,11 +14,9 @@
 		<link href="~/css/NWKBZdV.css" rel="stylesheet" />
 		<script src="~/js/NWKBZdV.js"></script>
 		<h3>Registro de Referencias</h3>
-		<p style="color:black; font-size:25px;">Candidato</p>
-		<form>
+		<form method="post" enctype="multipart/form-data">
 
 			<h4>Referencias laborales</h4>
-			<p style="color:red; font-size:12px;">Referencia 1</p>
 			<div>
 				<label asp-for="Referencia.CandidatoId">Seleccione el Candidato</label>
 				<select asp-for="Referencia.CandidatoId" asp-items="@(new SelectList(Model.CandidatoList, "Id" , "Nombre"))">
@@ -81,21 +79,21 @@
 				<br>
 				<label for="">Prestaciones:</label>
 				<label asp-for="Referencia.SueldoInicial">Inicial</label>
-				<input type="text" asp-for="Referencia.SueldoInicial" style="width : 300px; heigth : 1px" class="form-control form-text" placeholder="Sueldo Inicial">
+				<input type="number" asp-for="Referencia.SueldoInicial" style="width : 300px; heigth : 1px" class="form-control form-text" placeholder="Sueldo Inicial">
 				<br>
 				<br>
 				<label asp-for="Referencia.SueldoFinal">Final</label>
-				<input type="text" asp-for="Referencia.SueldoFinal" style="width : 300px; heigth : 1px" class="form-control form-text" placeholder="Sueldo Final">
+				<input type="number" asp-for="Referencia.SueldoFinal" style="width : 300px; heigth : 1px" class="form-control form-text" placeholder="Sueldo Final">
 			</div>
 			<br>
 			<br>
 			<div>
 				<label asp-for="Referencia.FechaInicLab">Fecha inicio de labores:</label>
-				<input type="text" asp-for="Referencia.FechaInicLab" style="width : 300px; heigth : 1px" class="form-control form-text" placeholder="Inicio Labores">
+				<input type="date" asp-for="Referencia.FechaInicLab" placeholder="Fecha Inicio Labores">
 				<br>
 				<br>
 				<label asp-for="Referencia.FechaFinLab">Fecha de separacion:</label>
-				<input type="text" asp-for="Referencia.FechaFinLab" style="width : 300px; heigth : 1px" class="form-control form-text" placeholder="Fin Labores">
+				<input type="date" asp-for="Referencia.FechaFinLab" placeholder="Fecha Fin Labores">
 				<br>
 				<br>
 				<label asp-for="Referencia.MotivoSeparacion">Motivo de separacion:</label>
@@ -110,26 +108,23 @@
 				<input type="text" asp-for="Referencia.Comentarios" style="width : 500px; heigth : 10px" class="form-control form-text" placeholder="">
 			</div>
 			<br>
-			<label asp-for="Referencia.CreatedAT">Fecha de Creación:</label>
-			<input type="text" asp-for="Referencia.CreatedAT" style="width : 300px; heigth : 1px" placeholder="Fecha">
-
-			<div><button type="submit" value="" class="btn btn-outline-primary ">Registrar</button></div>
-			<br>
-			<br>
-
-
-
+			<div>
+				<label asp-for="Referencia.CreatedAT">Fecha de Creación:</label>
+				<p>Formato tipo : 20-07-2020</p>
+				<input type="text" asp-for="Referencia.CreatedAT" style="width : 300px; heigth : 1px" placeholder="Fecha">
+			</div>
+			<br />
+			<div>
+				<button type="submit" value="" class="btn btn-primary">Registrar</button>
+			</div> 
+			<br />			<div class=""><a asp-page="./IndexReferencia" class="btn btn-danger">Cancelar</a>
+			</div>
+			<br />
+			<div>
+				<btn><a class="nav-link" asp-page="/Proyect/PageOrden/IndexOrden">Volver Ordenes</a></btn>
+            </div>
 		</form>
 	</body>
 </html>
-
-
-
-
-
-
-
-
-
 
 }
