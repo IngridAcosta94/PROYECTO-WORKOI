@@ -1,0 +1,51 @@
+SET IDENTITY_INSERT [dbo].[Candidatos] ON 
+
+INSERT [dbo].[Candidatos] ([Id], [CreatedAT], [UpdatedAT], [Status], [Nombre], [Apellido], [Curp], [Direccion], [FechaNac], [EstadoCivil], [Genero], [Correo], [NacionalidadId], [OrdenId]) VALUES (2, CAST(N'2020-07-31T00:00:00.0000000' AS DateTime2), NULL, 1, N'Eduardo', N'Perez Sanchez', N'PRSE941230MYNCZ06', N'Calle 22 Santa Rosa', CAST(N'1994-12-30T00:00:00.0000000' AS DateTime2), N'Soltero', 1, N'eduardo@gmail.com', 1, 1)
+INSERT [dbo].[Candidatos] ([Id], [CreatedAT], [UpdatedAT], [Status], [Nombre], [Apellido], [Curp], [Direccion], [FechaNac], [EstadoCivil], [Genero], [Correo], [NacionalidadId], [OrdenId]) VALUES (10, CAST(N'2031-07-31T00:00:00.0000000' AS DateTime2), NULL, 1, N'Monica', N'Suarez Tosca', N'SATM961010', N'Calle 56 Col. centro', CAST(N'1996-10-10T00:00:00.0000000' AS DateTime2), N'Casada', 0, N'monica@gmail.com', 3, 3)
+INSERT [dbo].[Candidatos] ([Id], [CreatedAT], [UpdatedAT], [Status], [Nombre], [Apellido], [Curp], [Direccion], [FechaNac], [EstadoCivil], [Genero], [Correo], [NacionalidadId], [OrdenId]) VALUES (11, CAST(N'2020-07-29T00:00:00.0000000' AS DateTime2), NULL, 1, N'Nidia', N'Chi Avila', N'Nidia0000019192ymjs', N'calle 34 Juan Pablo', CAST(N'2000-04-03T00:00:00.0000000' AS DateTime2), N'Soltero', 0, NULL, 1, 5)
+SET IDENTITY_INSERT [dbo].[Candidatos] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Cuentas] ON 
+
+INSERT [dbo].[Cuentas] ([Id], [CreatedAT], [UpdatedAT], [Status], [Nombre], [Usuario], [Contrasenia], [Correo]) VALUES (1, CAST(N'2020-07-31T00:00:00.0000000' AS DateTime2), NULL, 1, N'Ingrid', N'Ingrid', N'12345', N'ingrid@gmail.com')
+INSERT [dbo].[Cuentas] ([Id], [CreatedAT], [UpdatedAT], [Status], [Nombre], [Usuario], [Contrasenia], [Correo]) VALUES (2, CAST(N'2020-07-31T00:00:00.0000000' AS DateTime2), NULL, 1, N'Joel', N'Joel', N'12345', N'joel@gmail.com')
+SET IDENTITY_INSERT [dbo].[Cuentas] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Empresas] ON 
+
+INSERT [dbo].[Empresas] ([Id], [CreatedAT], [UpdatedAT], [Status], [Nombre], [Direccion], [Correo], [Telefono], [CuentaId]) VALUES (1, CAST(N'2020-07-31T00:00:00.0000000' AS DateTime2), NULL, 1, N'RECREMEX', N'Calle 23 Prados Chburna', N'recremex@gmail.com', N'9999230918', 1)
+INSERT [dbo].[Empresas] ([Id], [CreatedAT], [UpdatedAT], [Status], [Nombre], [Direccion], [Correo], [Telefono], [CuentaId]) VALUES (3, CAST(N'2020-07-31T00:00:00.0000000' AS DateTime2), NULL, 1, N'JOEL COMPANY', N'Calle 56 Col. Centro', N'joel@gmail.com', N'999999999', 2)
+SET IDENTITY_INSERT [dbo].[Empresas] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Nacionalidades] ON 
+
+INSERT into Nacionalidades VALUES ( CAST(N'2020-07-31T00:00:00.0000000' AS DateTime2), NULL, 1, N'Frances')
+INSERT [dbo].[Nacionalidades] ([Id], [CreatedAT], [UpdatedAT], [Status], [Nombre]) VALUES (2, CAST(N'2020-07-31T00:00:00.0000000' AS DateTime2), NULL, 1, N'Estadounidense')
+INSERT [dbo].[Nacionalidades] ([Id], [CreatedAT], [UpdatedAT], [Status], [Nombre]) VALUES (3, CAST(N'2020-07-31T00:00:00.0000000' AS DateTime2), NULL, 1, N'Canadiense')
+INSERT [dbo].[Nacionalidades] ([Id], [CreatedAT], [UpdatedAT], [Status], [Nombre]) VALUES (4, CAST(N'2020-07-31T00:00:00.0000000' AS DateTime2), NULL, 1, N'Japones')
+INSERT [dbo].[Nacionalidades] ([Id], [CreatedAT], [UpdatedAT], [Status], [Nombre]) VALUES (5, CAST(N'2020-07-31T00:00:00.0000000' AS DateTime2), NULL, 1, N'Español')
+SET IDENTITY_INSERT [dbo].[Nacionalidades] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Ordenes] ON 
+
+INSERT [dbo].[Ordenes] ([Id], [CreatedAT], [UpdatedAT], [Status], [PuestoSolicitado], [EmpresaId]) VALUES (1, CAST(N'2020-07-31T00:00:00.0000000' AS DateTime2), NULL, 1, N'Administrador', 1)
+INSERT [dbo].[Ordenes] ([Id], [CreatedAT], [UpdatedAT], [Status], [PuestoSolicitado], [EmpresaId]) VALUES (3, CAST(N'2020-07-31T00:00:00.0000000' AS DateTime2), NULL, 1, N'Contador', 1)
+INSERT [dbo].[Ordenes] ([Id], [CreatedAT], [UpdatedAT], [Status], [PuestoSolicitado], [EmpresaId]) VALUES (4, CAST(N'2031-07-31T00:00:00.0000000' AS DateTime2), NULL, 1, N'Desarrollar soft', 3)
+INSERT [dbo].[Ordenes] ([Id], [CreatedAT], [UpdatedAT], [Status], [PuestoSolicitado], [EmpresaId]) VALUES (5, CAST(N'2020-07-31T00:00:00.0000000' AS DateTime2), NULL, 1, N'Diseñador Web', 3)
+SET IDENTITY_INSERT [dbo].[Ordenes] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Puestos] ON 
+
+INSERT [dbo].[Puestos] ([Id], [CreatedAT], [UpdatedAT], [Status], [Nombre]) VALUES (1, CAST(N'2020-07-31T00:00:00.0000000' AS DateTime2), NULL, 1, N'Administrador')
+INSERT [dbo].[Puestos] ([Id], [CreatedAT], [UpdatedAT], [Status], [Nombre]) VALUES (2, CAST(N'2020-07-31T00:00:00.0000000' AS DateTime2), NULL, 1, N'Contador')
+INSERT [dbo].[Puestos] ([Id], [CreatedAT], [UpdatedAT], [Status], [Nombre]) VALUES (3, CAST(N'2020-07-31T00:00:00.0000000' AS DateTime2), NULL, 1, N'Desarrollador Soft')
+INSERT [dbo].[Puestos] ([Id], [CreatedAT], [UpdatedAT], [Status], [Nombre]) VALUES (4, CAST(N'2020-07-31T00:00:00.0000000' AS DateTime2), NULL, 1, N'Diseñador Web')
+INSERT [dbo].[Puestos] ([Id], [CreatedAT], [UpdatedAT], [Status], [Nombre]) VALUES (5, CAST(N'2020-07-31T00:00:00.0000000' AS DateTime2), NULL, 1, N'Axiliar de piso')
+SET IDENTITY_INSERT [dbo].[Puestos] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Referencias] ON 
+
+INSERT [dbo].[Referencias] ([Id], [CreatedAT], [UpdatedAT], [Status], [Nombre], [Telefono1], [Telefono2], [Telefono3], [Direccion], [RazonSocial], [NombreInformante], [PuestoInformante], [NombreJefe], [PuestoJefe], [SueldoInicial], [SueldoFinal], [FechaInicLab], [FechaFinLab], [MotivoSeparacion], [Comentarios], [CandidatoId], [PuestoId]) VALUES (7, CAST(N'2020-07-31T00:00:00.0000000' AS DateTime2), NULL, 1, N'MDY', N'9999999999', N'9999999991', NULL, N'Calle 65 Col. Centro', N'MDY CENTER', N'Luis Flores', N'RH', N'Adrian Lopez', N'Gerente', 3500, 5000, CAST(N'2016-09-21T00:00:00.0000000' AS DateTime2), CAST(N'2020-03-03T00:00:00.0000000' AS DateTime2), N'Encontro un nuevo empleo', N'Empleado responsable y honesto', 2, 1)
+INSERT [dbo].[Referencias] ([Id], [CreatedAT], [UpdatedAT], [Status], [Nombre], [Telefono1], [Telefono2], [Telefono3], [Direccion], [RazonSocial], [NombreInformante], [PuestoInformante], [NombreJefe], [PuestoJefe], [SueldoInicial], [SueldoFinal], [FechaInicLab], [FechaFinLab], [MotivoSeparacion], [Comentarios], [CandidatoId], [PuestoId]) VALUES (8, CAST(N'2020-07-31T00:00:00.0000000' AS DateTime2), NULL, 1, N'Blue Ocean', N'9999123456', N'9999127689', NULL, N'Calle 54 Col. Norte', N'Blue Oceam Comapy', N'Pedro cano', N'RH', N'Enrique Jimenez', N'Gerente', 8000, 12500, CAST(N'2017-04-09T00:00:00.0000000' AS DateTime2), CAST(N'2019-08-23T00:00:00.0000000' AS DateTime2), N'Motivos personales', N'Empleado responsable y  Honesto', 10, 3)
+SET IDENTITY_INSERT [dbo].[Referencias] OFF
+GO
